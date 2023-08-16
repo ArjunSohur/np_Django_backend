@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for prefs_data in user_prefs %}
+        <h2>{{ prefs_data.category }}</h2>
+        <p>Category Rating: {{ prefs_data.category_rating }}</p>
+        
+        <h3>Preferences:</h3>
+        <ul>
+            {% for preference in prefs_data.prefs %}
+                <li>{{ preference.0 }} - {{ preference.1 }}</li>
+            {% endfor %}
+        </ul>
+        
+    {% endfor %}
+
+    <h2>Unused Preferences:</h2>
+    {% for prefs_data in user_prefs %}
+        <ul>
+            {% for unused_pref in prefs_data.unused_topics %}
+                <li>{{ unused_pref }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
