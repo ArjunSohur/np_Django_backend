@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import json
 from .models import UserPrefs
+from django.contrib.auth.decorators import login_required
 
 initialPreferences = [
     [
@@ -78,7 +79,7 @@ for idx, category_data in enumerate(initialCategoryRatings):
     user_prefs.append(prefs_data)
 
 
-
+@login_required
 def home(request):
     prefs = {
         "user_prefs": user_prefs
