@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from .views import PrefListView, update_preferences
 
 urlpatterns = [
-    path("", views.home, name="prefs-home"),
+    path("", PrefListView.as_view(), name="prefs-home"),
+    path("update_preferences/", update_preferences, name="update_preferences"),
 ]

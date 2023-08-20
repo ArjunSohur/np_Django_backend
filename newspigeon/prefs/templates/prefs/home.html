@@ -1,25 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for prefs_data in user_prefs %}
-        <h2>{{ prefs_data.category }}</h2>
-        <p>Category Rating: {{ prefs_data.category_rating }}</p>
-        
-        <h3>Preferences:</h3>
-        <ul>
-            {% for preference in prefs_data.prefs %}
-                <li>{{ preference.0 }} - {{ preference.1 }}</li>
-            {% endfor %}
-        </ul>
-        
-    {% endfor %}
+    <h1>Debugging Print Statements</h1>
+    <pre>{{ user_prefs|pprint }}</pre>  {# Print the entire context for debugging #}
 
-    <h2>Unused Preferences:</h2>
-    {% for prefs_data in user_prefs %}
-        <ul>
-            {% for unused_pref in prefs_data.unused_topics %}
-                <li>{{ unused_pref }}</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+    <h2>Preferences JSON:</h2>
+    <pre>{{ user_prefs.0.preferences_json }}</pre>
+
+    <h2>Category Ratings JSON:</h2>
+    <pre>{{ user_prefs.0.category_ratings_json }}</pre>
+
+    <h2>Unused Topics JSON:</h2>
+    <pre>{{ user_prefs.0.unused_topics_json }}</pre>
 {% endblock %}
