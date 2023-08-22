@@ -11,8 +11,14 @@
                 {% for subcategory_data in category_data.1 %}
                     <li>
                         {{ subcategory_data.0 }} - 
-                        <input type="number" class="rating-input" data-category="{{ category_data.0.0 }}" data-subcategory="{{ subcategory_data.0 }}" value="{{ subcategory_data.1 }}" readonly>
-                        <button class="move-button" onclick="movePreference(this)" data-action="move" data-category="{{ category_data.0.0 }}" data-subcategory="{{ subcategory_data.0 }}">Move</button>
+                        <input type="number" class="rating-input" data-category="{{ category_data.0.0 }}" data-subcategory="{{ subcategory_data.0 }}" value="{{ subcategory_data.1 }}">
+                        
+                        {% if subcategory_data.2.movedToUnused %}
+                            <button type="button" onclick="moveSubcategoryBack({{ forloop.parentloop.counter0 }}, {{ forloop.counter0 }})">Move Back</button>
+                        {% else %}
+                            <button type="button" onclick="moveSubcategoryToUnused({{ forloop.parentloop.counter0 }}, {{ forloop.counter0 }})">Move to Unused</button>
+                        {% endif %}
+                        
                     </li>
                 {% endfor %}
             </ul>
@@ -20,199 +26,174 @@
     {% endfor %}
 </ul>
 
+
 <h2>Unused Preferences</h2>
 <ul id="unused-preferences">
     {% for category_data in category_ratings %}
         {% for unused in category_data.2 %}
             <li>
                 {{ unused.0 }} - {{ unused.1 }}
-                <button class="move-button" onclick="movePreference(this)" data-action="return" data-category="{{ category_data.0.0 }}" data-subcategory="{{ unused.0 }}">Move Back</button>
 
             </li>
         {% endfor %}
     {% endfor %}
 </ul>
 
-<button id="edit-ratings-button" onclick="toggleEdit()">Edit</button>
-
-<form id="ratings-form" style="display: none;">
-    <button type="button" id="update-ratings" onclick="saveChanges()">Save Changes</button>
+<form id="ratings-form">
+    <button type="button" id="save-changes" onclick="saveChanges()">Save Changes</button>
 </form>
 
-    <script>
-        var category_ratings = {{category_ratings|safe }};
-        console.log(category_ratings);  // Debug statement
-        var unusedPreferencesList = document.getElementById('unused-preferences');
-        var ratingsForm = document.getElementById('ratings-form');
-        var editButton = document.getElementById('edit-ratings-button');
-        var updateButton = document.getElementById('update-ratings');
-        var moveButtons = document.querySelectorAll('.move-button');
-        var ratingInputs = document.querySelectorAll('.rating-input');
+
+<script>
+
+    var category_ratings = {{ category_ratings|safe }};
+    
+    function moveSubcategoryToUnused(categoryIndex, subcategoryIndex) {
+        var subcategory = category_ratings[categoryIndex][1].splice(subcategoryIndex, 1)[0];
+        subcategory.movedToUnused = true; // Mark as moved to Unused
+        category_ratings[categoryIndex][2].push(subcategory);
+        console.log(`Moved ${subcategory[0]} to "Unused"`);
+        console.log('Updated category_ratings array:', category_ratings);
+        
+        // Call the DOM update function
+        updateDOM();
+    }
+    
+    function moveSubcategoryBack(categoryIndex, subcategoryIndex) {
+        var subcategory = category_ratings[categoryIndex][2].splice(subcategoryIndex, 1)[0];
+        subcategory.movedToUnused = false; // Mark as not moved to Unused
+        category_ratings[categoryIndex][1].push(subcategory);
+        console.log(`Moved ${subcategory[0]} back from "Unused"`);
+        console.log('Updated category_ratings array:', category_ratings);
+        
+        // Call the DOM update function
+        updateDOM();
+    }
+
+    function updateDOM() {
         var ratingsList = document.getElementById('ratings-list');
-
-        function toggleEdit() {
-            var isEditing = ratingsForm.style.display === 'block';
-
-            ratingsForm.style.display = isEditing ? 'none' : 'block';
-            editButton.innerText = isEditing ? 'Edit' : 'Cancel';
-            updateButton.style.display = isEditing ? 'none' : 'block';
-
-            ratingInputs.forEach(function(input) {
-                input.readOnly = !isEditing; // Toggle read-only attribute based on edit mode
-            });
-
-            // Enable editing for all inputs in both sections when the user is in editing mode
-            if (isEditing) {
-                unusedPreferencesList.querySelectorAll('.rating-input').forEach(function(input) {
-                    input.readOnly = false;
-                });
-            }
-        }
-
-        function updateDOM() {
-            var ratingsList = document.getElementById('ratings-list');
-            var unusedPreferencesList = document.getElementById('unused-preferences');
-
-            // Clear the current content of the lists
-            ratingsList.innerHTML = '';
-            unusedPreferencesList.innerHTML = '';
-
-            // Iterate through category_ratings and update the displayed lists
-            category_ratings.forEach(function (categoryData) {
-                var categoryName = categoryData[0][0];
-                var categoryRating = categoryData[0][1];
-                var usedSubcategories = categoryData[1];
-                var unusedSubcategories = categoryData[2];
-
-                var categoryItem = document.createElement('li');
-                var categoryHeader = document.createElement('h3');
-                categoryHeader.textContent = `${categoryName} - ${categoryRating}`;
-                categoryItem.appendChild(categoryHeader);
-
-                var usedSubcategoriesList = document.createElement('ul');
-
-                // Inside the updateDOM function, when creating usedSubcategoriesList
-                usedSubcategories.forEach(function (subcategoryData) {
-                    var subcategoryItem = document.createElement('li');
-                    subcategoryItem.textContent = `${subcategoryData[0]} - `;
-
-                    // Create an input field for the rating
-                    var input = document.createElement('input');
-                    input.type = 'number';
-                    input.className = 'rating-input';
-                    input.dataset.category = categoryName;
-                    input.dataset.subcategory = subcategoryData[0];
-                    input.value = subcategoryData[1]; // Set the initial value
-
-                    // Set readOnly based on edit mode
-                    input.readOnly = !ratingsForm.style.display || ratingsForm.style.display === 'none';
-
-                    subcategoryItem.appendChild(input);
-
-                    var moveButton = document.createElement('button');
-                    moveButton.textContent = 'Move';
-                    moveButton.className = 'move-button';
-                    moveButton.dataset.action = 'move';
-                    moveButton.dataset.category = categoryName;
-                    moveButton.dataset.subcategory = subcategoryData[0];
-                    moveButton.addEventListener('click', function () {
-                        movePreference(this);
-                    });
-
-                    subcategoryItem.appendChild(moveButton);
-                    usedSubcategoriesList.appendChild(subcategoryItem);
-                });
-
-                categoryItem.appendChild(usedSubcategoriesList);
-                ratingsList.appendChild(categoryItem);
-
-                var unusedSubcategoriesList = document.createElement('ul');
+        var unusedPrefsList = document.getElementById('unused-preferences');
+        
+        ratingsList.innerHTML = ''; // Clear the list
+        unusedPrefsList.innerHTML = ''; // Clear the unused prefs list
+        
+        for (var categoryIndex = 0; categoryIndex < category_ratings.length; categoryIndex++) {
+            var categoryData = category_ratings[categoryIndex];
+            var categoryName = categoryData[0][0];
+            var subcategories = categoryData[1];
+            
+            var categoryItem = document.createElement('li');
+            categoryItem.innerHTML = '<h3>' + categoryName + ' - ' + categoryData[0][1] + '</h3><ul></ul>';
+            
+            var subcategoriesList = categoryItem.querySelector('ul');
+            
+            for (var subcategoryIndex = 0; subcategoryIndex < subcategories.length; subcategoryIndex++) {
+                var subcategoryData = subcategories[subcategoryIndex];
+                var subcategoryName = subcategoryData[0];
+                var rating = subcategoryData[1];
+                var movedToUnused = subcategoryData.movedToUnused || false;
                 
-                unusedSubcategories.forEach(function (subcategoryData) {
-                    var subcategoryItem = document.createElement('li');
-                    subcategoryItem.textContent = `${subcategoryData[0]} - ${subcategoryData[1]}`;
-
-                    var moveButton = document.createElement('button');
-                    moveButton.textContent = 'Move Back';
-                    moveButton.className = 'move-button';
-                    moveButton.setAttribute('data-action', 'return');
-                    moveButton.setAttribute('data-category', categoryName);
-                    moveButton.setAttribute('data-subcategory', subcategoryData[0]);
-
-                    // Attach the movePreference event handler
-                    moveButton.addEventListener('click', function () {
-                        movePreference(this);
-                    });
-
-                    subcategoryItem.appendChild(moveButton);
-                    unusedSubcategoriesList.appendChild(subcategoryItem);
-                });
-
-                unusedPreferencesList.appendChild(unusedSubcategoriesList);
-            });
+                var subcategoryItem = document.createElement('li');
+                subcategoryItem.innerHTML = subcategoryName + ' - ' + 
+                    '<input type="number" class="rating-input" data-category="' + categoryName + '" data-subcategory="' + subcategoryName + '" value="' + rating + '">' +
+                    (movedToUnused ?
+                        '<button type="button" onclick="moveSubcategoryBack(' + categoryIndex + ', ' + subcategoryIndex + ')">Move Back</button>' :
+                        '<button type="button" onclick="moveSubcategoryToUnused(' + categoryIndex + ', ' + subcategoryIndex + ')">Move to Unused</button>'
+                    );
+                
+                subcategoriesList.appendChild(subcategoryItem);
+            }
+            
+            ratingsList.appendChild(categoryItem);
         }
+        
+        // Populate the unused preferences list and add buttons to move them back
+        for (var categoryIndex = 0; categoryIndex < category_ratings.length; categoryIndex++) {
+            var unusedSubcategories = category_ratings[categoryIndex][2];
+            
+            for (var subcategoryIndex = 0; subcategoryIndex < unusedSubcategories.length; subcategoryIndex++) {
+                var subcategoryData = unusedSubcategories[subcategoryIndex];
+                var subcategoryName = subcategoryData[0];
+                
+                var unusedSubcategoryItem = document.createElement('li');
+                unusedSubcategoryItem.textContent = subcategoryName;
+                
+                var moveBackButton = document.createElement('button');
+                moveBackButton.textContent = 'Move Back';
+                moveBackButton.onclick = (function(catIndex, subcatIndex) {
+                    return function() {
+                        moveSubcategoryBack(catIndex, subcatIndex);
+                        updateDOM(); // Update the DOM after moving back
+                    };
+                })(categoryIndex, subcategoryIndex);
+                
+                unusedSubcategoryItem.appendChild(moveBackButton);
+                unusedPrefsList.appendChild(unusedSubcategoryItem);
+            }
+        }
+    }
 
-        function movePreference(button) {
-            var action = button.getAttribute('data-action');
-            var category = button.getAttribute('data-category');
-            var subcategory = button.getAttribute('data-subcategory');
-            var categoryIndex = category_ratings.findIndex(function (categoryData) {
-                return categoryData[0][0] === category;
-            });
 
-            if (categoryIndex !== -1) {
-                var subcategoryIndex = -1;
-                var subcategoriesArray = action === 'move' ? category_ratings[categoryIndex][1] : category_ratings[categoryIndex][2];
 
-                for (var i = 0; i < subcategoriesArray.length; i++) {
-                    if (subcategoriesArray[i][0] === subcategory) {
-                        subcategoryIndex = i;
-                        break;
-                    }
-                }
+    function saveChanges() {
+        // Get all the rating inputs
+        var ratingInputs = document.querySelectorAll('.rating-input');
 
-                if (subcategoryIndex !== -1) {
-                    var movedSubcategory = subcategoriesArray.splice(subcategoryIndex, 1)[0];
+        // Create a dictionary to store the changed ratings
+        var changedRatings = {};
 
-                    if (action === 'move') {
-                        category_ratings[categoryIndex][2].push(movedSubcategory);
-                    } else if (action === 'return') {
-                        category_ratings[categoryIndex][1].push(movedSubcategory);
-                    }
+        // Loop through each rating input
+        ratingInputs.forEach(function(input) {
+            var category = input.getAttribute('data-category');
+            var subcategory = input.getAttribute('data-subcategory');
+            var rating = parseInt(input.value);
 
-                    // Refresh the displayed lists after the change
-                    updateDOM();
+            // Store the changed rating in the dictionary
+            if (!changedRatings[category]) {
+                changedRatings[category] = {};
+            }
+            changedRatings[category][subcategory] = rating;
+        });
 
-                    // Re-enable read-only for input fields after move
-                    ratingInputs.forEach(function(input) {
-                        input.removeAttribute('readonly');
-                    }); 
+        // Update the displayed ratings on the screen
+        for (var category in changedRatings) {
+            for (var subcategory in changedRatings[category]) {
+                // Find the corresponding rating input
+                var input = document.querySelector(
+                    '.rating-input[data-category="' + category + '"][data-subcategory="' + subcategory + '"]'
+                );
+
+                // Update the value of the input
+                if (input) {
+                    input.value = changedRatings[category][subcategory];
                 }
             }
         }
 
+        // Update the underlying category_ratings array with the changed ratings
+        for (var i = 0; i < category_ratings.length; i++) {
+            var categoryData = category_ratings[i];
+            var category = categoryData[0][0];
+            var subcategories = categoryData[1];
 
-        function findPreferenceList(category) {
-            var preferenceLists = ratingsList.querySelectorAll('ul');
-            for (var i = 0; i < preferenceLists.length; i++) {
-                var header = preferenceLists[i].previousElementSibling;
-                if (header.textContent.includes(category)) {
-                    return preferenceLists[i];
+            for (var j = 0; j < subcategories.length; j++) {
+                var subcategoryData = subcategories[j];
+                var subcategory = subcategoryData[0];
+                
+                if (changedRatings[category] && changedRatings[category][subcategory]) {
+                    subcategoryData[1] = changedRatings[category][subcategory];
                 }
             }
-            return null;
         }
 
-        function saveChanges() {
-            // Collect data and send to server via AJAX if needed
+        console.log('Updated category_ratings array:', category_ratings);
+    }
 
-            ratingInputs.forEach(function(input) {
-                input.readOnly = true;
-            });
+    // Initial DOM update
+    updateDOM();
 
-            ratingsForm.style.display = 'none';
-            editButton.innerText = 'Edit';
-            updateButton.style.display = 'none';
-        }
-    </script>
+
+</script>
+
+
 {% endblock %}
