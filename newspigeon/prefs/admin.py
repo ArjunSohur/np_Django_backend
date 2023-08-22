@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import UserPrefs
+from .models import CategoryRating
 
-admin.site.register(UserPrefs)
+admin.site.register(CategoryRating)

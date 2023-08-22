@@ -1,11 +1,11 @@
 from django.shortcuts import render
 import json
-from .models import UserPrefs
+from .models import CategoryRating
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-
+from django.shortcuts import render
 
 
 initialPreferences = [
@@ -17,7 +17,7 @@ initialPreferences = [
     ],
     [
         ["Science", 5],
-        ["Computer Science", 5],      
+        ["Computer Science", 5],
         ["Artificial Intelligence", 5],
         ["Technology", 5],
         ["Medical Research", 5],
@@ -57,7 +57,7 @@ initialPreferences = [
         ["Rugby", 5],
         ["Cricket", 5]
     ]
-  ]
+]
 
 initialCategoryRatings = [
     ["Business, Finance, and Economics", 5],
@@ -66,18 +66,19 @@ initialCategoryRatings = [
     ["Domestic and World Politics", 5],
     ["Sports", 5]
 
-  ]
+]
 
-initialUnusedTopics = []
+initialUnusedTopics = [[], [], [], [], []]
 
 
 @login_required
 def update_preferences(request):
     if request.method == 'POST':
         user = request.user
-        user_prefs = UserPrefs.objects.get(user=user)
+        user_prefs = CategoryRating.objects.get(user=user)
 
-        updated_preferences = request.POST.get('preferences')  # Get updated preferences from POST data
+        # Get updated preferences from POST data
+        updated_preferences = request.POST.get('preferences')
 
         # Update the preferences field
         user_prefs.preferences_json = updated_preferences
@@ -88,35 +89,43 @@ def update_preferences(request):
     return JsonResponse({'message': 'Invalid request method'})
 
 
-
 class PrefListView(ListView):
-    model = UserPrefs
+    model = CategoryRating
     template_name = "prefs/home.html"
     context_object_name = "user_prefs"
 
     def get_queryset(self):
         user = self.request.user
-        user_prefs, created = UserPrefs.objects.get_or_create(user=user)
+        user_prefs, created = CategoryRating.objects.get_or_create(user=user)
 
         if created:
             # Initialize with hardcoded preferences for new users
-            user_prefs.preferences_json = json.dumps(initialPreferences)
-            user_prefs.category_ratings_json = json.dumps(initialCategoryRatings)
-            user_prefs.unused_topics_json = json.dumps(initialUnusedTopics)
+            full_ratings = []
+            for i in range(len(initialCategoryRatings)):
+                temp_ratings = []
+                temp_ratings.append(initialCategoryRatings[i])
+                temp_ratings.append(initialPreferences[i])
+                temp_ratings.append(initialUnusedTopics[i])
+
+                full_ratings.append(temp_ratings)
+
+            user_prefs.category_ratings_json = json.dumps(full_ratings)
             user_prefs.save()
 
-        return UserPrefs.objects.filter(user=user)  # Return the user's preferences
+        # Return the user's preferences
+        return CategoryRating.objects.filter(user=user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user_prefs_queryset = context["user_prefs"]
 
-        print("User Preferences Queryset:", user_prefs_queryset)
+        # Retrieve the first object from the queryset
+        first_user_prefs = user_prefs_queryset.first()
 
-        for user_prefs in user_prefs_queryset:
-            print("User:", user_prefs.user)
-            print("Preferences JSON:", user_prefs.preferences_json)
-            print("Category Ratings JSON:", user_prefs.category_ratings_json)
-            print("Unused Topics JSON:", user_prefs.unused_topics_json)
+        # Parse the JSON data from the first object
+        category_ratings_data = json.loads(
+            first_user_prefs.category_ratings_json)
+
+        context["category_ratings"] = category_ratings_data
 
         return context

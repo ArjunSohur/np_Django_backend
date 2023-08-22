@@ -1,15 +1,218 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Debugging Print Statements</h1>
-    <pre>{{ user_prefs|pprint }}</pre>  {# Print the entire context for debugging #}
+<h1>Category Ratings</h1>
 
-    <h2>Preferences JSON:</h2>
-    <pre>{{ user_prefs.0.preferences_json }}</pre>
+<ul id="ratings-list">
+    {% for category_data in category_ratings %}
+        <li>
+            <h3>{{ category_data.0.0 }} - {{ category_data.0.1 }}</h3>
+            <ul>
+                {% for subcategory_data in category_data.1 %}
+                    <li>
+                        {{ subcategory_data.0 }} - 
+                        <input type="number" class="rating-input" data-category="{{ category_data.0.0 }}" data-subcategory="{{ subcategory_data.0 }}" value="{{ subcategory_data.1 }}" readonly>
+                        <button class="move-button" onclick="movePreference(this)" data-action="move" data-category="{{ category_data.0.0 }}" data-subcategory="{{ subcategory_data.0 }}">Move</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
 
-    <h2>Category Ratings JSON:</h2>
-    <pre>{{ user_prefs.0.category_ratings_json }}</pre>
+<h2>Unused Preferences</h2>
+<ul id="unused-preferences">
+    {% for category_data in category_ratings %}
+        {% for unused in category_data.2 %}
+            <li>
+                {{ unused.0 }} - {{ unused.1 }}
+                <button class="move-button" onclick="movePreference(this)" data-action="return" data-category="{{ category_data.0.0 }}" data-subcategory="{{ unused.0 }}">Move Back</button>
 
-    <h2>Unused Topics JSON:</h2>
-    <pre>{{ user_prefs.0.unused_topics_json }}</pre>
+            </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+<button id="edit-ratings-button" onclick="toggleEdit()">Edit</button>
+
+<form id="ratings-form" style="display: none;">
+    <button type="button" id="update-ratings" onclick="saveChanges()">Save Changes</button>
+</form>
+
+    <script>
+        var category_ratings = {{category_ratings|safe }};
+        console.log(category_ratings);  // Debug statement
+        var unusedPreferencesList = document.getElementById('unused-preferences');
+        var ratingsForm = document.getElementById('ratings-form');
+        var editButton = document.getElementById('edit-ratings-button');
+        var updateButton = document.getElementById('update-ratings');
+        var moveButtons = document.querySelectorAll('.move-button');
+        var ratingInputs = document.querySelectorAll('.rating-input');
+        var ratingsList = document.getElementById('ratings-list');
+
+        function toggleEdit() {
+            var isEditing = ratingsForm.style.display === 'block';
+
+            ratingsForm.style.display = isEditing ? 'none' : 'block';
+            editButton.innerText = isEditing ? 'Edit' : 'Cancel';
+            updateButton.style.display = isEditing ? 'none' : 'block';
+
+            ratingInputs.forEach(function(input) {
+                input.readOnly = !isEditing; // Toggle read-only attribute based on edit mode
+            });
+
+            // Enable editing for all inputs in both sections when the user is in editing mode
+            if (isEditing) {
+                unusedPreferencesList.querySelectorAll('.rating-input').forEach(function(input) {
+                    input.readOnly = false;
+                });
+            }
+        }
+
+        function updateDOM() {
+            var ratingsList = document.getElementById('ratings-list');
+            var unusedPreferencesList = document.getElementById('unused-preferences');
+
+            // Clear the current content of the lists
+            ratingsList.innerHTML = '';
+            unusedPreferencesList.innerHTML = '';
+
+            // Iterate through category_ratings and update the displayed lists
+            category_ratings.forEach(function (categoryData) {
+                var categoryName = categoryData[0][0];
+                var categoryRating = categoryData[0][1];
+                var usedSubcategories = categoryData[1];
+                var unusedSubcategories = categoryData[2];
+
+                var categoryItem = document.createElement('li');
+                var categoryHeader = document.createElement('h3');
+                categoryHeader.textContent = `${categoryName} - ${categoryRating}`;
+                categoryItem.appendChild(categoryHeader);
+
+                var usedSubcategoriesList = document.createElement('ul');
+
+                // Inside the updateDOM function, when creating usedSubcategoriesList
+                usedSubcategories.forEach(function (subcategoryData) {
+                    var subcategoryItem = document.createElement('li');
+                    subcategoryItem.textContent = `${subcategoryData[0]} - `;
+
+                    // Create an input field for the rating
+                    var input = document.createElement('input');
+                    input.type = 'number';
+                    input.className = 'rating-input';
+                    input.dataset.category = categoryName;
+                    input.dataset.subcategory = subcategoryData[0];
+                    input.value = subcategoryData[1]; // Set the initial value
+
+                    // Set readOnly based on edit mode
+                    input.readOnly = !ratingsForm.style.display || ratingsForm.style.display === 'none';
+
+                    subcategoryItem.appendChild(input);
+
+                    var moveButton = document.createElement('button');
+                    moveButton.textContent = 'Move';
+                    moveButton.className = 'move-button';
+                    moveButton.dataset.action = 'move';
+                    moveButton.dataset.category = categoryName;
+                    moveButton.dataset.subcategory = subcategoryData[0];
+                    moveButton.addEventListener('click', function () {
+                        movePreference(this);
+                    });
+
+                    subcategoryItem.appendChild(moveButton);
+                    usedSubcategoriesList.appendChild(subcategoryItem);
+                });
+
+                categoryItem.appendChild(usedSubcategoriesList);
+                ratingsList.appendChild(categoryItem);
+
+                var unusedSubcategoriesList = document.createElement('ul');
+                
+                unusedSubcategories.forEach(function (subcategoryData) {
+                    var subcategoryItem = document.createElement('li');
+                    subcategoryItem.textContent = `${subcategoryData[0]} - ${subcategoryData[1]}`;
+
+                    var moveButton = document.createElement('button');
+                    moveButton.textContent = 'Move Back';
+                    moveButton.className = 'move-button';
+                    moveButton.setAttribute('data-action', 'return');
+                    moveButton.setAttribute('data-category', categoryName);
+                    moveButton.setAttribute('data-subcategory', subcategoryData[0]);
+
+                    // Attach the movePreference event handler
+                    moveButton.addEventListener('click', function () {
+                        movePreference(this);
+                    });
+
+                    subcategoryItem.appendChild(moveButton);
+                    unusedSubcategoriesList.appendChild(subcategoryItem);
+                });
+
+                unusedPreferencesList.appendChild(unusedSubcategoriesList);
+            });
+        }
+
+        function movePreference(button) {
+            var action = button.getAttribute('data-action');
+            var category = button.getAttribute('data-category');
+            var subcategory = button.getAttribute('data-subcategory');
+            var categoryIndex = category_ratings.findIndex(function (categoryData) {
+                return categoryData[0][0] === category;
+            });
+
+            if (categoryIndex !== -1) {
+                var subcategoryIndex = -1;
+                var subcategoriesArray = action === 'move' ? category_ratings[categoryIndex][1] : category_ratings[categoryIndex][2];
+
+                for (var i = 0; i < subcategoriesArray.length; i++) {
+                    if (subcategoriesArray[i][0] === subcategory) {
+                        subcategoryIndex = i;
+                        break;
+                    }
+                }
+
+                if (subcategoryIndex !== -1) {
+                    var movedSubcategory = subcategoriesArray.splice(subcategoryIndex, 1)[0];
+
+                    if (action === 'move') {
+                        category_ratings[categoryIndex][2].push(movedSubcategory);
+                    } else if (action === 'return') {
+                        category_ratings[categoryIndex][1].push(movedSubcategory);
+                    }
+
+                    // Refresh the displayed lists after the change
+                    updateDOM();
+
+                    // Re-enable read-only for input fields after move
+                    ratingInputs.forEach(function(input) {
+                        input.removeAttribute('readonly');
+                    }); 
+                }
+            }
+        }
+
+
+        function findPreferenceList(category) {
+            var preferenceLists = ratingsList.querySelectorAll('ul');
+            for (var i = 0; i < preferenceLists.length; i++) {
+                var header = preferenceLists[i].previousElementSibling;
+                if (header.textContent.includes(category)) {
+                    return preferenceLists[i];
+                }
+            }
+            return null;
+        }
+
+        function saveChanges() {
+            // Collect data and send to server via AJAX if needed
+
+            ratingInputs.forEach(function(input) {
+                input.readOnly = true;
+            });
+
+            ratingsForm.style.display = 'none';
+            editButton.innerText = 'Edit';
+            updateButton.style.display = 'none';
+        }
+    </script>
 {% endblock %}
