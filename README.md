@@ -1,5 +1,5 @@
 Trying to build the web app on django
 
-Finished: auth
+Finished: front end of prefs page (90%)
 
-Working on: class view and parsing through json strings as they come
+Working on: edit issue with front end of prefs page && back end of prefs page
