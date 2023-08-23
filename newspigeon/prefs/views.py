@@ -72,21 +72,19 @@ initialUnusedTopics = [[], [], [], [], []]
 
 
 @login_required
-def update_preferences(request):
+def update_category_ratings(request):
     if request.method == 'POST':
         user = request.user
+        data = json.loads(request.body)
+
+        # Update the user's category_ratings_json field with the new data
         user_prefs = CategoryRating.objects.get(user=user)
-
-        # Get updated preferences from POST data
-        updated_preferences = request.POST.get('preferences')
-
-        # Update the preferences field
-        user_prefs.preferences_json = updated_preferences
+        user_prefs.category_ratings_json = json.dumps(data)
         user_prefs.save()
 
-        return JsonResponse({'message': 'Preferences updated successfully'})
+        return JsonResponse({'message': 'Category ratings updated and saved successfully.'})
 
-    return JsonResponse({'message': 'Invalid request method'})
+    return JsonResponse({'message': 'Invalid request method.'}, status=400)
 
 
 class PrefListView(ListView):
@@ -127,5 +125,7 @@ class PrefListView(ListView):
             first_user_prefs.category_ratings_json)
 
         context["category_ratings"] = category_ratings_data
+
+        print(category_ratings_data)
 
         return context

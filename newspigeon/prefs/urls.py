@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import PrefListView, update_preferences
+from .views import PrefListView
+from .views import update_category_ratings
 
 urlpatterns = [
     path("", PrefListView.as_view(), name="prefs-home"),
-    path("update_preferences/", update_preferences, name="update_preferences"),
+    path("update-category-ratings/", update_category_ratings,
+         name="update-categoryratings"),
 ]
