@@ -6,7 +6,9 @@
 <ul id="ratings-list">
     {% for category_data in category_ratings %}
         <li>
-            <h3>{{ category_data.0.0 }} - {{ category_data.0.1 }}</h3>
+            <h3>
+                {{ category_data.0.0 }} - {{ category_data.0.1 }}
+            </h3>
             <ul>
                 {% for subcategory_data in category_data.1 %}
                     <li>
@@ -97,16 +99,34 @@
             var subcategories = categoryData[1];
             
             var categoryItem = document.createElement('li');
-            categoryItem.innerHTML = '<h3>' + categoryName + ' - ' + categoryData[0][1] + '</h3><ul></ul>';
-            
-            var subcategoriesList = categoryItem.querySelector('ul');
-            
+            var categoryHeader = document.createElement('h3');
+            categoryHeader.textContent = categoryName + ' - ';
+
+            if (editingMode) {
+                var categoryRatingInput = document.createElement('input');
+                categoryRatingInput.type = 'number';
+                categoryRatingInput.step = 'any';
+                categoryRatingInput.classList.add('category-rating-input');
+                categoryRatingInput.setAttribute('data-category', categoryName);
+                categoryRatingInput.value = categoryData[0][1];
+
+                // Append the input field to the category header
+                categoryHeader.appendChild(categoryRatingInput);
+            } else {
+                categoryHeader.textContent += categoryData[0][1];
+            }
+
+            categoryItem.appendChild(categoryHeader);
+
+            var subcategoriesList = document.createElement('ul');
+
+            // Rest of your subcategory rendering code
             for (var subcategoryIndex = 0; subcategoryIndex < subcategories.length; subcategoryIndex++) {
                 var subcategoryData = subcategories[subcategoryIndex];
                 var subcategoryName = subcategoryData[0];
                 var rating = subcategoryData[1];
                 var movedToUnused = subcategoryData.movedToUnused || false;
-                
+
                 var subcategoryItem = document.createElement('li');
                 subcategoryItem.innerHTML = subcategoryName + ' - ';
 
@@ -124,7 +144,8 @@
 
                 subcategoriesList.appendChild(subcategoryItem);
             }
-            
+
+            categoryItem.appendChild(subcategoriesList);
             ratingsList.appendChild(categoryItem);
         }
         
@@ -210,7 +231,38 @@
                 }
             }
 
+            // Get all the category rating inputs
+            var categoryRatingInputs = document.querySelectorAll('.category-rating-input');
+
+            // Loop through each category rating input
+            categoryRatingInputs.forEach(function(input) {
+                var category = input.getAttribute('data-category');
+                var newRating = parseFloat(input.value);
+
+                // Find the category in the category_ratings array and update its rating
+                for (var i = 0; i < category_ratings.length; i++) {
+                    var categoryData = category_ratings[i];
+                    var categoryName = categoryData[0][0];
+                    if (category === categoryName) {
+                        categoryData[0][1] = newRating;
+                        break;
+                    }
+                }
+            });
+
+            // Update the displayed category ratings on the screen
+            for (var categoryIndex = 0; categoryIndex < category_ratings.length; categoryIndex++) {
+                var categoryData = category_ratings[categoryIndex];
+                var categoryName = categoryData[0][0];
+                var categoryRatingSpan = document.getElementById('category-rating-' + categoryIndex);
+                
+                if (categoryRatingSpan) {
+                    categoryRatingSpan.textContent = categoryData[0][1];
+                }
+            }
+
             console.log('Updated category_ratings array:', category_ratings);
+            updateCategoryRatings();
         }
     }
 
@@ -247,7 +299,6 @@
         }
         return cookieValue;
     }
-
 
 
     window.onbeforeunload = function () {
