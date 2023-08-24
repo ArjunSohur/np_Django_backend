@@ -7,9 +7,11 @@ import numpy
 import numpy as np
 import pandas as pd
 import openpyxl
-from user_nn_prefs import UserInterestModel
+from .user_nn_prefs import UserInterestModel
 import torch.nn as nn
 import torch
+import json
+from django.db.models.query import QuerySet
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -25,12 +27,28 @@ def to_float_list(string: str):
 
     return np_list
 
+def convert_subject_vector(subject_vectors):
+    new_subject_vectors = []
+
+    for sub_vec_obj in subject_vectors:
+        name = sub_vec_obj.name
+        vector = to_float_list(sub_vec_obj.value)
+        new_subject_vectors.append([name, vector])
+        
+    new_subject_vectors = pd.DataFrame(new_subject_vectors, columns=["Subject", "Vector"])
+
+    return new_subject_vectors
+
+
 
 # We use this method to instantiate the user vector at the start and whenever the preferences are updated
 def set_vector(preferences, category_ratings, subject_vectors):
     added_ratings = 0
     number_of_ratings = 0
     temp_user_vector = numpy.zeros(384)
+
+    if isinstance(subject_vectors, QuerySet):
+        subject_vectors = convert_subject_vector(subject_vectors=subject_vectors)
 
     # Iterates through the categories
     for i in range(len(preferences)):
@@ -42,6 +60,7 @@ def set_vector(preferences, category_ratings, subject_vectors):
             temp_array = temp_array.detach().numpy().tolist()
 
         temp_vector = np.zeros(384)
+
 
         # Finding a subject in the user's personalized subject grid
         for j in range(len(temp_array)):
@@ -72,33 +91,38 @@ def set_vector(preferences, category_ratings, subject_vectors):
 
 class User:
     # Initialization class is decently self-explanatory
-    def __init__(self, preferences, category_ratings):
+    def __init__(self, preferences, category_ratings, subject_vectors, bias):
         self.preferences = preferences
         self.category_ratings = category_ratings
 
-        subject_path = "/Users/arjunsohur/Desktop/newpigeonData/subject_embedding.xlsx"
+        self.subject_vectors = []
 
-        subject_vectors = pd.read_excel(subject_path, engine="openpyxl")
-
-        subject_vectors["Coordinates"] = subject_vectors["Coordinates"].apply(lambda x: to_float_list(x))
-
-        self.subject_vectors = subject_vectors
+        for sub_vec_obj in subject_vectors:
+            name = sub_vec_obj.name
+            vector = to_float_list(sub_vec_obj.value)
+            self.subject_vectors.append([name, vector])
+        
+        self.subject_vectors = pd.DataFrame(self.subject_vectors, columns=["Subject", "Vector"])
 
         self.vector, self.num_ratings, added_ratings = set_vector(preferences=preferences,
                                                                   category_ratings=category_ratings,
-                                                                  subject_vectors=subject_vectors)
-        self.bias = added_ratings / self.num_ratings
+                                                                  subject_vectors=self.subject_vectors)
+        self.bias = bias
 
         self.user_nn = UserInterestModel(self.preferences, self.category_ratings, self.subject_vectors, self.bias)
 
     # sorting recs by dot product with articles - may change it to predicting with UserInterestModel
     def get_recs(self, articles):
-        data = articles
+        data = []
+        for query in articles:
+            data.append([query, to_float_list(query.vector)])
+        
+        data = pd.DataFrame(data)
 
         recs = []
 
         for i in range(len(data)):
-            score = abs(np.dot(data.iloc[i][7], self.vector))
+            score = abs(np.dot(data.iloc[i][1], self.vector))
             recs.append([data.iloc[i][0], score])
 
         recs = sorted(recs, key=lambda x: x[1], reverse=True)
@@ -158,12 +182,21 @@ class User:
 
     # Changing the preference numbers
     def update_prefs(self, new_pref, new_cat_rating):
-        for i in range(len(self.preferences)):
-            for j in range(len(self.preferences[i])):
-                self.preferences[i][j][1] = new_pref[i][j].detach().numpy().item()
+        if isinstance(new_pref, torch.Tensor):
+            for i in range(len(self.preferences)):
+                for j in range(len(self.preferences[i])):
+                    self.preferences[i][j][1] = new_pref[i][j].detach().numpy().item()
 
-        for k in range(len(self.category_ratings)):
-            self.category_ratings[k][1] = new_cat_rating[k].detach().numpy().item()
+            for k in range(len(self.category_ratings)):
+                self.category_ratings[k][1] = new_cat_rating[k].detach().numpy().item()
+        else:
+            for i in range(len(self.preferences)):
+                for j in range(len(self.preferences[i])):
+                    self.preferences[i][j][1] = new_pref[i][j][1]
+
+            for k in range(len(self.category_ratings)):
+                self.category_ratings[k][1] = new_cat_rating[k][1]
+
 
     def class_set_vector(self, prefs, category_ratings, subject_vectors):
         self.update_prefs(prefs, category_ratings)

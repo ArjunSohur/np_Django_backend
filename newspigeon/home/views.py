@@ -74,14 +74,17 @@ def home(request):
     return render(request, "home/home.html")
 
 def parseCategoryRatings(large_cat_ratings):
-    cat_ratings, prefs = []
+    cat_ratings = []
+    prefs = []
 
-    for i in range(len(large_cat_ratings)):
-        for j in range(len(large_cat_ratings[i])):
+    rating_data = json.loads(large_cat_ratings.category_ratings_json)
+
+    for i in range(len(rating_data)):
+        for j in range(len(rating_data[i])):
             if j == 0: 
-                cat_ratings.append(large_cat_ratings[i][j])
+                cat_ratings.append(rating_data[i][j])
             elif j == 1:
-                prefs.append(large_cat_ratings[i][j])
+                prefs.append(rating_data[i][j])
     
     return prefs, cat_ratings
 
@@ -104,25 +107,27 @@ def getratings(user):
     
     subject_vectors = SubjectVector.objects.all()
 
-    preferences, short_category_ratings = parseCategoryRatings(CategoryRating.objects.get_or_create(user=user))
+    preferences, short_category_ratings = parseCategoryRatings(CategoryRating.objects.get(user=user))
 
     return preferences, short_category_ratings, subject_vectors
 
 
 
 class HomeListView(ListView):
-    # Initialize ------------------------------------------------------------------------------
-    handler = DynamicHandler()
+    model = NewsArticle  # Specify the model to use
+    template_name = 'home/home.html'  # Specify the template name
+    context_object_name = 'articles'  # Specify the context variable name for the list of articles
 
-    user = ListView.request.user
 
-    preferences, short_category_ratings, subject_vectors = getratings(user=user)
-    
-
-    handler.initialize_context(preferences=preferences, category_ratings=short_category_ratings,
-                                subject_vectors=subject_vectors, user_bias=5)
-    
-    # ------------------------------------------------------------------------------------------
+    def setup(self, request, *args, **kwargs):
+        super().setup(request, *args, **kwargs)
+        
+        # Access the authenticated user using self.request.user
+        self.user = self.request.user
+        
+        # Initialize other attributes as needed
+        preferences, short_category_ratings, subject_vectors = getratings(user=self.user)
+        self.handler = DynamicHandler(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, user_bias=5)
     
     def get_context_data(self, **kwargs):
         user = self.request.user
@@ -134,10 +139,11 @@ class HomeListView(ListView):
 
         recs = self.handler.get_recommendations(articles=articles)
 
-        return recs
+        return {'recs': recs}
     
     def process_rating(self, article, rating):
         self.handler.handle_feedback(article=article, rating=rating)
+
 
 
 
