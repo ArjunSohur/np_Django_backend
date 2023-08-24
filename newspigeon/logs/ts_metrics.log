@@ -579,3 +579,10 @@
 2023-08-23T20:18:03,495 - MemoryAvailable.Megabytes:357.0625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
 2023-08-23T20:18:03,495 - MemoryUsed.Megabytes:658.36328125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
 2023-08-23T20:18:03,495 - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:19:03,466 - CPUUtilization.Percent:33.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,469 - DiskAvailable.Gigabytes:67.67393112182617|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,469 - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,469 - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,470 - MemoryAvailable.Megabytes:404.41015625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,470 - MemoryUsed.Megabytes:665.44921875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
+2023-08-23T20:19:03,470 - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836343
