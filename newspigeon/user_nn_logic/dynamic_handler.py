@@ -10,6 +10,9 @@ class DynamicHandler(BaseHandler):
         # Initialize your neural network and user class here
 
         self.user_class = User(preferences, category_ratings, subject_vectors, user_bias)  # Initialize User instance
+    
+    def update_attributes(self, preferences, category_ratings, subject_vectors):
+        self.user_class.class_set_vectorset_vector(prefs=preferences, category_ratings=category_ratings, subject_vectors=subject_vectors)
 
     def get_recommendations(self, articles):
 

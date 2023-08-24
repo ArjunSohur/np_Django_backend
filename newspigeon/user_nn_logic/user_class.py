@@ -165,6 +165,15 @@ class User:
         for k in range(len(self.category_ratings)):
             self.category_ratings[k][1] = new_cat_rating[k].detach().numpy().item()
 
+    def class_set_vector(self, prefs, category_ratings, subject_vectors):
+        self.update_prefs(prefs, category_ratings)
+
+        self.subject_vectors = subject_vectors
+        self.vector, _, _, = set_vector(preferences=self.preferences, category_ratings=self.category_ratings,
+                                        subject_vectors=self.subject_vectors)
+
+
+
     # get methods ------------------------------------------------------------------------------------------------------
     def get_prefs(self):
         return self.preferences, self.category_ratings
