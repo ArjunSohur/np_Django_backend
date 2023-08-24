@@ -1,0 +1,665 @@
+2023-08-23T18:15:40,653 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-08-23T18:15:40,653 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2023-08-23T18:15:40,688 [INFO ] main org.pytorch.serve.metrics.configuration.MetricConfiguration - Successfully loaded metrics configuration from /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages/ts/configs/metrics.yaml
+2023-08-23T18:15:40,688 [INFO ] main org.pytorch.serve.metrics.configuration.MetricConfiguration - Successfully loaded metrics configuration from /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages/ts/configs/metrics.yaml
+2023-08-23T18:15:40,729 [INFO ] main org.pytorch.serve.ModelServer - 
+Torchserve version: 0.8.1
+TS Home: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages
+Current directory: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon
+Temp directory: /var/folders/3n/kslngq_j67n1x2qdrc7tzjfw0000gn/T/
+Metrics config path: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages/ts/configs/metrics.yaml
+Number of GPUs: 0
+Number of CPUs: 8
+Max heap size: 2048 M
+Python executable: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/bin/python
+Config file: torchserve_config/config.properties
+Inference address: http://0.0.0.0:8080
+Management address: http://0.0.0.0:8081
+Metrics address: http://127.0.0.1:8082
+Model Store: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/model_store
+Initial Models: N/A
+Log dir: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/logs
+Metrics dir: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/logs
+Netty threads: 0
+Netty client threads: 0
+Default workers per model: 8
+Blacklist Regex: N/A
+Maximum Response Size: 6553500
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: false
+Enable metrics API: true
+Metrics mode: log
+Disable system metrics: false
+Workflow Store: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/model_store
+Model config: N/A
+2023-08-23T18:15:40,729 [INFO ] main org.pytorch.serve.ModelServer - 
+Torchserve version: 0.8.1
+TS Home: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages
+Current directory: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon
+Temp directory: /var/folders/3n/kslngq_j67n1x2qdrc7tzjfw0000gn/T/
+Metrics config path: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/lib/python3.9/site-packages/ts/configs/metrics.yaml
+Number of GPUs: 0
+Number of CPUs: 8
+Max heap size: 2048 M
+Python executable: /Users/arjunsohur/Desktop/np_Django_backend/newspigeonVenv/bin/python
+Config file: torchserve_config/config.properties
+Inference address: http://0.0.0.0:8080
+Management address: http://0.0.0.0:8081
+Metrics address: http://127.0.0.1:8082
+Model Store: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/model_store
+Initial Models: N/A
+Log dir: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/logs
+Metrics dir: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/logs
+Netty threads: 0
+Netty client threads: 0
+Default workers per model: 8
+Blacklist Regex: N/A
+Maximum Response Size: 6553500
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: false
+Enable metrics API: true
+Metrics mode: log
+Disable system metrics: false
+Workflow Store: /Users/arjunsohur/Desktop/np_Django_backend/newspigeon/model_store
+Model config: N/A
+2023-08-23T18:15:40,735 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-08-23T18:15:40,735 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2023-08-23T18:15:40,747 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: NioServerSocketChannel.
+2023-08-23T18:15:40,747 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: NioServerSocketChannel.
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8080
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8080
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: NioServerSocketChannel.
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: NioServerSocketChannel.
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://0.0.0.0:8081
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://0.0.0.0:8081
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: NioServerSocketChannel.
+2023-08-23T18:15:40,790 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: NioServerSocketChannel.
+2023-08-23T18:15:40,791 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
+2023-08-23T18:15:40,791 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://127.0.0.1:8082
+2023-08-23T18:15:40,973 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,974 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.66185760498047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,974 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,975 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,975 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:343.4375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,975 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:663.30859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:15:40,975 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692828940
+2023-08-23T18:21:07,737 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,739 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.64232635498047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,740 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,740 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,740 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:347.31640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,740 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:637.2578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:21:07,740 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829267
+2023-08-23T18:30:37,556 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:25.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,557 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.68512344360352|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,557 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,557 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:328.76171875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:664.91796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:30:37,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:96.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829837
+2023-08-23T18:31:37,054 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71791458129883|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:423.1640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:723.0234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:31:37,055 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829897
+2023-08-23T18:32:36,998 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829956
+2023-08-23T18:32:36,999 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71706008911133|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829956
+2023-08-23T18:32:36,999 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829956
+2023-08-23T18:32:36,999 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829956
+2023-08-23T18:32:36,999 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:432.875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829956
+2023-08-23T18:32:37,000 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:755.3046875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829957
+2023-08-23T18:32:37,000 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692829957
+2023-08-23T18:33:37,027 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,028 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71617889404297|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,028 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,028 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,028 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:416.05078125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,029 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:717.78515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:33:37,029 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830017
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71661758422852|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:401.375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,006 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:724.828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:34:37,007 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830077
+2023-08-23T18:35:37,017 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,018 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71452713012695|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,018 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,018 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,018 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:413.30859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,019 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:715.921875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:35:37,019 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830137
+2023-08-23T18:36:37,009 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,009 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71450805664062|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,009 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,009 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,010 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:416.51171875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,010 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:701.3203125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:36:37,010 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830197
+2023-08-23T18:37:37,016 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,016 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71352767944336|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,017 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,017 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,017 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:424.4375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,017 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:718.39453125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:37:37,017 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830257
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71245574951172|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:423.484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,022 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:742.734375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:38:37,023 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830317
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71235275268555|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:457.1015625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,027 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:669.48828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:39:37,028 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830377
+2023-08-23T18:40:37,035 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71148300170898|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:436.1875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:730.140625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:40:37,036 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830437
+2023-08-23T18:41:37,046 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71145629882812|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:432.6328125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:725.01953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:41:37,047 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830497
+2023-08-23T18:42:37,026 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71144104003906|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,027 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,027 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:425.91796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,028 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:727.4296875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:42:37,028 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830557
+2023-08-23T18:43:37,032 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,032 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71138381958008|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,033 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,033 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,033 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:433.78515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,033 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:732.29296875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:43:37,033 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830617
+2023-08-23T18:44:37,052 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:33.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,053 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71102142333984|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,053 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,053 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,053 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:450.8984375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,053 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:722.49609375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:44:37,054 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830677
+2023-08-23T18:45:37,011 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71100997924805|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:444.26953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:742.61328125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:45:37,012 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830737
+2023-08-23T18:46:37,043 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71438598632812|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:426.04296875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:720.80859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:46:37,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830797
+2023-08-23T18:47:37,032 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71331024169922|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:433.48828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:726.25|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:47:37,034 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830857
+2023-08-23T18:48:58,404 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,405 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70355987548828|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,405 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,405 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,405 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:392.48046875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,405 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:678.62890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:48:58,406 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.2|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692830938
+2023-08-23T18:55:15,376 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.69849014282227|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:402.90234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:689.4375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:55:15,377 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831315
+2023-08-23T18:57:46,616 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70176315307617|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:407.34765625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:689.51953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:57:46,617 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831466
+2023-08-23T18:59:13,822 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.70049285888672|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:400.7109375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:683.6875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T18:59:13,825 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831553
+2023-08-23T19:02:00,218 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,218 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.7054557800293|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,219 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,219 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,219 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:411.7890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,219 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:696.7265625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:02:00,219 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692831720
+2023-08-23T19:18:01,003 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.71137619018555|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:375.359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:666.80859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:18:01,004 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832681
+2023-08-23T19:19:00,989 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.72088241577148|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:418.8515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:704.69140625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:19:00,990 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:94.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832740
+2023-08-23T19:20:00,964 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,964 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.72115707397461|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,964 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,964 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,964 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:431.53125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,965 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:712.96484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:20:00,965 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:94.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832800
+2023-08-23T19:21:00,959 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.72098159790039|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:427.80078125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:709.1953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:21:00,960 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832860
+2023-08-23T19:22:01,011 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,012 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.71208953857422|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,013 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,013 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,013 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:339.578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,013 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:641.0703125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:22:01,013 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832921
+2023-08-23T19:23:00,993 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.72076797485352|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:348.01171875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:631.6484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:23:00,994 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692832980
+2023-08-23T19:24:00,970 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.71765518188477|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:373.67578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:661.859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:24:00,971 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833040
+2023-08-23T19:25:00,967 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.71748733520508|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:388.2578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:672.4609375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:25:00,968 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833100
+2023-08-23T19:26:00,987 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,987 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.71733856201172|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,988 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,988 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,988 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:388.96484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,988 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:671.7890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:26:00,988 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833160
+2023-08-23T19:27:00,977 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,977 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71714401245117|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,977 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,977 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,977 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:387.02734375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,978 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:671.08203125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:27:00,978 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833220
+2023-08-23T19:28:00,980 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71596908569336|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:379.66796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:658.625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:28:00,981 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833280
+2023-08-23T19:29:00,977 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.7157211303711|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:372.04296875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:669.94140625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:29:00,978 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833340
+2023-08-23T19:30:00,988 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71522521972656|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:365.3359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:656.2890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:30:00,989 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833400
+2023-08-23T19:31:00,992 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71556854248047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:360.18359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:652.03515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:31:00,993 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833460
+2023-08-23T19:35:04,062 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,063 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71940612792969|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,063 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,064 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,064 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:363.46875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,064 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:668.48046875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:35:04,064 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833704
+2023-08-23T19:36:03,524 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71708679199219|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,526 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,526 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:385.10546875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:674.2578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:36:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833763
+2023-08-23T19:37:03,485 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,486 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71318817138672|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,487 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,487 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,487 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:349.0703125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,487 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:671.9921875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:37:03,487 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833823
+2023-08-23T19:38:03,527 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,528 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71474838256836|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,528 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,528 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,528 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:364.3984375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,529 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:674.21484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:38:03,529 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833883
+2023-08-23T19:39:03,549 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:88.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,550 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.71032333374023|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,550 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,550 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,550 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:332.125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,550 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:704.6484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:39:03,551 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692833943
+2023-08-23T19:40:03,554 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70896911621094|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:395.25|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:699.23828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:40:03,558 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.2|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834003
+2023-08-23T19:41:03,525 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70433807373047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:376.31640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:659.35546875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:41:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834063
+2023-08-23T19:42:03,517 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,520 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.7043685913086|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,520 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,520 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,521 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:313.2890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,521 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:659.359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:42:03,521 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:96.2|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834123
+2023-08-23T19:43:03,531 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70060729980469|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:334.91796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:698.2734375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:43:03,532 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834183
+2023-08-23T19:44:03,498 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70392990112305|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:380.6796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:679.25|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:44:03,499 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834243
+2023-08-23T19:45:03,501 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.7076187133789|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:360.0546875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:663.171875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:45:03,502 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834303
+2023-08-23T19:46:03,528 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70643997192383|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:362.9453125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:671.0546875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:46:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834363
+2023-08-23T19:47:03,527 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,528 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.70259094238281|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,529 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,529 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,529 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:386.32421875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,529 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:684.640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:47:03,529 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834423
+2023-08-23T19:48:04,069 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,070 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.6939582824707|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,070 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,070 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,071 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:368.2109375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,071 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:689.8984375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:48:04,071 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834484
+2023-08-23T19:49:03,524 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.69183731079102|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,525 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:382.3359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:691.28515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:49:03,526 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834543
+2023-08-23T19:50:03,524 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.6902847290039|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:377.234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:709.5078125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:50:03,525 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834603
+2023-08-23T19:51:03,521 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.6903190612793|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:385.18359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:703.2890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:51:03,522 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834663
+2023-08-23T19:52:03,529 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,529 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.68808364868164|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,530 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,530 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:424.5234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:726.28515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:52:03,530 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.8|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834723
+2023-08-23T19:53:03,512 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,513 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:67.68780517578125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,513 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,514 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,514 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:449.91796875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,514 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:749.90625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:53:03,514 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:94.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834783
+2023-08-23T19:54:03,520 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,521 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.6877555847168|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,521 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,522 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,522 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:376.375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,522 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:735.01171875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:54:03,522 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834843
+2023-08-23T19:55:03,524 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.69287109375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:368.828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:733.703125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:55:03,525 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.5|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834903
+2023-08-23T19:56:03,493 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:33.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,493 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.69176864624023|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,493 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,493 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,493 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:397.359375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:717.953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:56:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692834963
+2023-08-23T19:57:03,497 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.69060897827148|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:381.96484375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:732.48828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:57:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835023
+2023-08-23T19:58:03,509 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.6875114440918|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:408.21875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:708.12890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:58:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835083
+2023-08-23T19:59:03,517 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:25.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68783187866211|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:373.8515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:720.8203125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T19:59:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835143
+2023-08-23T20:00:03,514 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68534088134766|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,515 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:385.56640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,515 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:694.0859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:00:03,515 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835203
+2023-08-23T20:01:03,513 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.6856803894043|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:412.2421875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:706.12109375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:01:03,514 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835263
+2023-08-23T20:02:03,519 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68260955810547|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:396.7890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:686.09375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:02:03,520 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.2|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835323
+2023-08-23T20:03:03,493 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68256378173828|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:379.80859375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:683.984375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:03:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835383
+2023-08-23T20:04:03,493 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68009948730469|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:411.30078125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:729.21875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:04:03,494 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835443
+2023-08-23T20:05:03,508 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.68000793457031|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:335.1953125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:720.4296875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:05:03,509 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.9|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835503
+2023-08-23T20:06:03,510 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,510 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.6750602722168|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:360.3671875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:671.32421875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:06:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835563
+2023-08-23T20:07:03,500 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.67549896240234|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:389.0234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:698.19921875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:07:03,501 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835623
+2023-08-23T20:08:03,487 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,488 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.67304611206055|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,488 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,488 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,488 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:403.38671875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,489 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:713.65234375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:08:03,489 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835683
+2023-08-23T20:09:03,479 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.67256164550781|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:396.3515625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:706.09765625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:09:03,480 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.2|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835743
+2023-08-23T20:10:03,482 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,483 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66605758666992|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,483 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,484 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,484 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:385.74609375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,484 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:679.890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:10:03,484 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835803
+2023-08-23T20:11:03,510 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,510 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66874313354492|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,511 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:364.05078125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:680.8828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:11:03,511 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835863
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66869354248047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:380.4140625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:691.6875|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:12:03,504 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835923
+2023-08-23T20:13:03,517 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:50.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.67095947265625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.3|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:401.765625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:699.31640625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:13:03,518 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692835983
+2023-08-23T20:14:03,498 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66872024536133|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:405.8828125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:700.12890625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:14:03,499 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836043
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66862106323242|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:398.75390625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:696.4765625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:15:03,498 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.1|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836103
+2023-08-23T20:16:03,492 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,492 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66840744018555|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,492 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,493 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,493 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:406.52734375|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,493 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:702.25390625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:16:03,493 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836163
+2023-08-23T20:17:03,505 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,505 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66630935668945|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,505 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,505 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,505 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:354.61328125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,506 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:680.70703125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:17:03,506 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.7|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836223
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - CPUUtilization.Percent:100.0|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - DiskAvailable.Gigabytes:67.66576385498047|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - DiskUsage.Gigabytes:20.61410903930664|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - DiskUtilization.Percent:23.4|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - MemoryAvailable.Megabytes:357.0625|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUsed.Megabytes:658.36328125|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
+2023-08-23T20:18:03,495 [INFO ] pool-3-thread-2 TS_METRICS - MemoryUtilization.Percent:95.6|#Level:Host|#hostname:Arjuns-MacBook.local,timestamp:1692836283
