@@ -183,6 +183,7 @@
         if (editingMode) {
             // Get all the rating inputs
             var ratingInputs = document.querySelectorAll('.rating-input');
+            var changesMade = false;
 
             // Create a dictionary to store the changed ratings
             var changedRatings = {};
@@ -263,6 +264,7 @@
 
             console.log('Updated category_ratings array:', category_ratings);
             updateCategoryRatings();
+            update_pickled_user();
         }
     }
 
@@ -281,6 +283,23 @@
                 console.log('Category ratings updated and saved.');
             } else {
                 console.error('Failed to update and save category ratings.');
+            }
+        });
+    }
+
+    function update_pickled_user() {
+        fetch('update-picked-user/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({})
+        }).then( function (response) {
+            if (response.ok) {
+                console.log('PU Function called successfully.');
+            } else {
+            console.error('PU Failed to call the function.');
             }
         });
     }

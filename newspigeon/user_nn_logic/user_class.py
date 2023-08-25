@@ -180,6 +180,30 @@ class User:
 
         # self.print_prefs()
 
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Defunct
+# ----------------------------------------------------------------------------------------------------------------------
+"""
+def vector_subject_breakdown(article_vector, subject_vectors):
+    sub_vec = np.array(subject_vectors.iloc[:, 1])
+
+    similarities_list = []
+
+    for i in range(len(subject_vectors)):
+        cos_sim = abs(np.dot(article_vector, sub_vec[i]))
+
+        similarities_list.append([subject_vectors.iloc[i][0], cos_sim])
+
+    similarities_list = sorted(similarities_list, key=lambda x: x[1], reverse=True)
+
+    for j in range(len(similarities_list)):
+        print(f"{similarities_list[j][0]}: {similarities_list[j][1]}")
+
+    return similarities_list
+
+
     # Changing the preference numbers
     def update_prefs(self, new_pref, new_cat_rating):
         if isinstance(new_pref, torch.Tensor):
@@ -229,28 +253,6 @@ class User:
 
     def get_vec(self):
         return self.vector
-
-
-# ----------------------------------------------------------------------------------------------------------------------
-# Defunct
-# ----------------------------------------------------------------------------------------------------------------------
-"""
-def vector_subject_breakdown(article_vector, subject_vectors):
-    sub_vec = np.array(subject_vectors.iloc[:, 1])
-
-    similarities_list = []
-
-    for i in range(len(subject_vectors)):
-        cos_sim = abs(np.dot(article_vector, sub_vec[i]))
-
-        similarities_list.append([subject_vectors.iloc[i][0], cos_sim])
-
-    similarities_list = sorted(similarities_list, key=lambda x: x[1], reverse=True)
-
-    for j in range(len(similarities_list)):
-        print(f"{similarities_list[j][0]}: {similarities_list[j][1]}")
-
-    return similarities_list
 """
 # ----------------------------------------------------------------------------------------------------------------------
 #  End of file

@@ -1,11 +1,13 @@
 from typing import Any, Dict
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import SubjectVector, NewsArticle
+from .models import SubjectVector, NewsArticle, PickledUser
 from prefs.models import CategoryRating
 from django.views.generic import ListView
 from user_nn_logic.dynamic_handler import DynamicHandler
+from user_nn_logic.user_class import User
 import json
+import pickle
 
 initialPreferences = [
     [
@@ -125,28 +127,27 @@ class HomeListView(ListView):
         # Access the authenticated user using self.request.user
         self.user = self.request.user
         
-        # Initialize other attributes as needed
-        preferences, short_category_ratings, subject_vectors = getratings(user=self.user)
-        self.handler = DynamicHandler(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, user_bias=5)
-    
+        try:
+            pickled_user = PickledUser.objects.get(user=self.user)
+        except PickledUser.DoesNotExist:
+            # User not found, create a PickledUser instance
+            preferences, short_category_ratings, subject_vectors = getratings(user=self.user)
+            
+            new_user = User(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, bias=5)
+            pickled_data = pickle.dumps(new_user)
+            PickledUser.objects.create(user=self.user, pickled_data=pickled_data)
+
+            pickled_user = PickledUser.objects.get(user=self.user)
+        
+        self.current_user = pickled_user.get_user()
+        
     def get_context_data(self, **kwargs):
-        user = self.request.user
-        preferences, short_category_ratings, subject_vectors = getratings(user=user)
-
-        self.handler.update_attributes(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors)
-
         articles = NewsArticle.objects.all()
 
-        recs = self.handler.get_recommendations(articles=articles)
+        recs = self.current_user.get_recs(articles=articles)
 
         return {'recs': recs}
     
     def process_rating(self, article, rating):
-        self.handler.handle_feedback(article=article, rating=rating)
-
-
-
-
-
-
+        self.current_user.process_rating(article=article, rating=rating)
 

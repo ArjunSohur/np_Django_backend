@@ -63,10 +63,6 @@ class UserInterestModel(nn.Module):
         # bias
         self.user_bias = bias
 
-    # Simple get method
-    def get_prefs(self):
-        return self.subtopic_weights, self.topic_weights
-
     # We are just calculating the user vector here, but in a way that the gradient can flow through
     # The whole calculation is w.r.t. the preferences, which are what will change
     # The rest of the calculation is done is user.py
@@ -134,6 +130,12 @@ def set_vector(preferences, category_ratings, subject_vectors):
     vector = torch.tensor(user_vec / np.linalg.norm(user_vec))
 
     return vector, number_of_ratings, added_ratings
+
+
+    # Simple get method
+    def get_prefs(self):
+        return self.subtopic_weights, self.topic_weights
+
     """
 
 # ----------------------------------------------------------------------------------------------------------------------
