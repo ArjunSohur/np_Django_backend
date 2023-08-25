@@ -16,7 +16,6 @@ class NewsArticle(models.Model):
     authors =  models.TextField()
     domain = models.URLField()
     vector =  models.TextField()
-    rating = models.IntegerField(validators=[MaxValueValidator(10)], default=-1)
 
 class PickledUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import SubjectVector, NewsArticle, PickledUser
 from prefs.models import CategoryRating
 from django.views.generic import ListView
-from user_nn_logic.dynamic_handler import DynamicHandler
 from user_nn_logic.user_class import User
 import json
 import pickle
