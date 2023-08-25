@@ -119,6 +119,8 @@ class User:
         
         data = pd.DataFrame(data)
 
+        print(self.preferences)
+
         recs = []
 
         for i in range(len(data)):
@@ -179,6 +181,10 @@ class User:
         print("-------------------------------------------------")
 
         # self.print_prefs()
+    
+    def get_prefs(self):
+        return self.preferences
+
 
 
 

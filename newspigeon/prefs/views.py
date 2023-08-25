@@ -73,43 +73,40 @@ initialCategoryRatings = [
 
 initialUnusedTopics = [[], [], [], [], []]
 
-def updateUserObject(request):
-        try:
-            user = request.user
+def updateUserObject(request): 
+    if request.method == 'POST':
+        user = request.user
 
-            unordered_ratings = CategoryRating.objects.filter(user=user)
+        rating_data = json.loads(request.body)
 
-            cat_ratings = []
-            prefs = []
+        cat_ratings = []
+        prefs = []
 
-            rating_data = json.loads(unordered_ratings.category_ratings_json)
-
-            for i in range(len(rating_data)):
-                for j in range(len(rating_data[i])):
-                    if j == 0: 
-                        cat_ratings.append(rating_data[i][j])
-                    elif j == 1:
-                        prefs.append(rating_data[i][j])
-            
-            subject_vectors = SubjectVector.objects.all()
-
-            updated_user = User(preferences=prefs, category_ratings=cat_ratings, subject_vectors=subject_vectors, bias=5)
-            pickled_updated_user = pickle.dumps(updated_user)
-
-            old_pickled_data = PickledUser.objects.filter(user=user)
-            old_pickled_data.pickled_data = pickled_updated_user
-
-            old_pickled_data.save()
-
-            response_data = {
-            'message': 'Function called successfully'
-            }
-        except:
-            response_data = {
-            'message': 'Function failed to store new pickled user'
-            }
+        for i in range(len(rating_data)):
+            for j in range(len(rating_data[i])):
+                if j == 0: 
+                    cat_ratings.append(rating_data[i][j])
+                elif j == 1:
+                    prefs.append(rating_data[i][j])
         
-        return JsonResponse(response_data)
+        subject_vectors = SubjectVector.objects.all()
+
+        updated_user = User(preferences=prefs, category_ratings=cat_ratings, subject_vectors=subject_vectors, bias=5)
+
+        print("new user ------------------------")
+        print(updated_user.get_prefs())
+        print("---------------------------------")
+
+        pickled_updated_user = pickle.dumps(updated_user)
+
+        old_pickled_data = PickledUser.objects.get(user=user)
+        old_pickled_data.pickled_data = pickled_updated_user
+
+        old_pickled_data.save()
+
+        return JsonResponse({'message': 'PU updated and saved successfully.'})
+
+    return JsonResponse({'message': 'PU failed.'}, status=400)
 
 
 
@@ -168,7 +165,5 @@ class PrefListView(ListView):
             first_user_prefs.category_ratings_json)
 
         context["category_ratings"] = category_ratings_data
-
-        print(category_ratings_data)
 
         return context

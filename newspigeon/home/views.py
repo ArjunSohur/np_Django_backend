@@ -136,15 +136,14 @@ class HomeListView(ListView):
             new_user = User(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, bias=5)
             pickled_data = pickle.dumps(new_user)
             PickledUser.objects.create(user=self.user, pickled_data=pickled_data)
-
-            pickled_user = PickledUser.objects.get(user=self.user)
-        
-        self.current_user = pickled_user.get_user()
         
     def get_context_data(self, **kwargs):
         articles = NewsArticle.objects.all()
+        pickled_user = PickledUser.objects.get(user=self.user).get_user()
 
-        recs = self.current_user.get_recs(articles=articles)
+        print(pickled_user)
+
+        recs = pickled_user.get_recs(articles=articles)
 
         return {'recs': recs}
     

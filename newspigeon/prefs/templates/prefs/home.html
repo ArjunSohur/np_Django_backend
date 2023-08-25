@@ -294,7 +294,7 @@
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({})
+            body: JSON.stringify(category_ratings)
         }).then( function (response) {
             if (response.ok) {
                 console.log('PU Function called successfully.');
