@@ -119,7 +119,9 @@ class User:
         
         data = pd.DataFrame(data)
 
-        print(self.preferences)
+        if np.any(np.isnan(self.vector)):
+            self.reset_vector()
+
 
         recs = []
 
@@ -184,6 +186,11 @@ class User:
     
     def get_prefs(self):
         return self.preferences
+    
+    def reset_vector(self):
+        self.vector, _, _ = set_vector(preferences=self.preferences,
+                                        category_ratings=self.category_ratings,
+                                        subject_vectors= self.subject_vectors)
 
 
 

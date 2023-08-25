@@ -73,6 +73,7 @@ initialCategoryRatings = [
 
 initialUnusedTopics = [[], [], [], [], []]
 
+@login_required
 def updateUserObject(request): 
     if request.method == 'POST':
         user = request.user
@@ -107,8 +108,6 @@ def updateUserObject(request):
         return JsonResponse({'message': 'PU updated and saved successfully.'})
 
     return JsonResponse({'message': 'PU failed.'}, status=400)
-
-
 
 
 @login_required

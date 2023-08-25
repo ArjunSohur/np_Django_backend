@@ -1,4 +1,7 @@
-# dynamic_handler.py
+# dynamic_handler.py is defunct
+
+
+"""
 
 import torch
 from ts.torch_handler.base_handler import BaseHandler
@@ -31,3 +34,4 @@ class DynamicHandler(BaseHandler):
         self.user_class.process_rating(article_info, rating)
 
 # handler = DynamicHandler()
+"""
