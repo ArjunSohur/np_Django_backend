@@ -9,6 +9,7 @@ import json
 import pickle
 from decimal import Decimal, ROUND_HALF_UP
 
+
 initialPreferences = [
     [
         ["Business", 5],
@@ -87,7 +88,7 @@ def parseCategoryRatings(large_cat_ratings):
     
     return prefs, cat_ratings
 
-@login_required
+
 def getratings(user):
     user_prefs, created = CategoryRating.objects.get_or_create(user=user)
 
@@ -111,7 +112,7 @@ def getratings(user):
 
     return preferences, short_category_ratings, subject_vectors
 
-@login_required
+
 def update_category_ratings(new_prefs, new_category_ratings, user):
     user_in_question = CategoryRating.objects.get(user=user)
     user_prefs = json.loads(user_in_question.category_ratings_json)
@@ -127,16 +128,12 @@ def update_category_ratings(new_prefs, new_category_ratings, user):
                     copy_prefs[i][j][k][1] = float(max(1, min(10, Decimal(new_prefs[i][k][1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))))
 
     
-    print(copy_prefs)
-    
     user_in_question.category_ratings_json = json.dumps(copy_prefs)
     user_in_question.save()
 
 @login_required
 def process_rating(request):
     if request.method == 'POST':
-
-        print(request.POST)
 
         article_title = request.POST.get('article_title')    
 
@@ -161,6 +158,10 @@ def process_rating(request):
 
     return redirect("home-home")
 
+def get_user_ratings(user, articles):
+    user_ratings = ArticleRating.objects.filter(user=user, article__in=articles).values('article', 'rating')
+    user_rating_dict = {rating['article']: rating['rating'] for rating in user_ratings}
+    return user_rating_dict
 
 
 
@@ -169,7 +170,6 @@ class HomeListView(ListView):
     template_name = 'home/home.html'  # Specify the template name
     context_object_name = 'articles'  # Specify the context variable name for the list of articles
 
-    @login_required
     def setup(self, request, *args, **kwargs):
         super().setup(request, *args, **kwargs)
         
@@ -185,15 +185,13 @@ class HomeListView(ListView):
             new_user = User(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, bias=5)
             pickled_data = pickle.dumps(new_user)
             PickledUser.objects.create(user=self.user, pickled_data=pickled_data)
-
-    @login_required   
+   
     def get_context_data(self, **kwargs):
         articles = NewsArticle.objects.all()
         pickled_user = PickledUser.objects.get(user=self.user).get_user()
 
-        print(pickled_user)
-
         recs = pickled_user.get_recs(articles=articles)
+        user_ratings = get_user_ratings(user=self.user, articles=articles)
 
-        return {'recs': recs}
+        return {'recs': recs, 'user_ratings': user_ratings}
 

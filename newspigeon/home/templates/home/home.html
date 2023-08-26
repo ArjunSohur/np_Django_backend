@@ -12,20 +12,25 @@
                 <p>Published on: {{ recommendation.0.date }}</p>
                 <p>Domain: {{ recommendation.0.domain }}</p>
 
-                <form method="post" action="{% url 'process_rating' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="article_title" value="{{ recommendation.0.title }}">
-                    <label for="rating">Rate this article:</label>
-                    <select name="rating">
-                        {% for i in '0123456789'|make_list %}
-                            <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
-                        {% endfor %}
-                    </select>
-                    <button type="submit">Submit Rating</button>
-                </form>
-
+                {% load custom_filters %}
+                {% with user_rating=user_ratings|default:0 %}
+                    {% if user_rating and recommendation.0.pk in user_rating %}
+                        <p>Your Rating: {{ user_rating|get_dict_value:recommendation.0.pk }}</p>
+                    {% else %}
+                        <form method="post" action="{% url 'process_rating' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="article_title" value="{{ recommendation.0.title }}">
+                            <label for="rating">Rate this article:</label>
+                            <select name="rating">
+                                {% for i in '0123456789'|make_list %}
+                                    <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit">Submit Rating</button>
+                        </form>
+                    {% endif %}
+                {% endwith %}
             </li>
         {% endfor %}
     </ul>
 {% endblock %}
-
