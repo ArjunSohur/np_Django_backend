@@ -90,6 +90,10 @@ class UserInterestModel(nn.Module):
         user_vector = user_vector / torch.norm(user_vector)
 
         return user_vector
+    
+    # Simple get method
+    def get_prefs(self):
+        return self.subtopic_weights, self.topic_weights
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -132,9 +136,7 @@ def set_vector(preferences, category_ratings, subject_vectors):
     return vector, number_of_ratings, added_ratings
 
 
-    # Simple get method
-    def get_prefs(self):
-        return self.subtopic_weights, self.topic_weights
+    
 
     """
 

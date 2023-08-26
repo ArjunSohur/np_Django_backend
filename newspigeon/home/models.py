@@ -16,6 +16,14 @@ class NewsArticle(models.Model):
     authors =  models.TextField()
     domain = models.URLField()
     vector =  models.TextField()
+    ratings = models.ManyToManyField(User, through='ArticleRating')
+
+class ArticleRating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article = models.ForeignKey(NewsArticle, on_delete=models.CASCADE)
+    rating = models.PositiveIntegerField(choices=zip(range(1, 11), range(1, 11)))
+    date = models.DateTimeField(auto_now_add=True, blank=True)
+
 
 class PickledUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

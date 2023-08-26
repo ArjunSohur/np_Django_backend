@@ -1,12 +1,13 @@
 from typing import Any, Dict
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import SubjectVector, NewsArticle, PickledUser
+from .models import SubjectVector, NewsArticle, PickledUser, ArticleRating
 from prefs.models import CategoryRating
 from django.views.generic import ListView
 from user_nn_logic.user_class import User
 import json
 import pickle
+from decimal import Decimal, ROUND_HALF_UP
 
 initialPreferences = [
     [
@@ -70,9 +71,6 @@ initialCategoryRatings = [
 
 initialUnusedTopics = [[], [], [], [], []]
 
-@login_required
-def home(request):
-    return render(request, "home/home.html")
 
 def parseCategoryRatings(large_cat_ratings):
     cat_ratings = []
@@ -113,6 +111,57 @@ def getratings(user):
     return preferences, short_category_ratings, subject_vectors
 
 
+def update_category_ratings(new_prefs, new_category_ratings, user):
+    user_in_question = CategoryRating.objects.get(user=user)
+    user_prefs = json.loads(user_in_question.category_ratings_json)
+
+    copy_prefs = user_prefs
+
+    for i in range(len(copy_prefs)):
+        for j in range(len(copy_prefs[i])):
+            if j == 0:
+                copy_prefs[i][j][1] = float(max(1, min(10, Decimal(new_category_ratings[i][1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))))
+            if j == 1:
+                for k in range(len(copy_prefs[i][j])):
+                    copy_prefs[i][j][k][1] = float(max(1, min(10, Decimal(new_prefs[i][k][1]).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))))
+
+    
+    print(copy_prefs)
+    
+    user_in_question.category_ratings_json = json.dumps(copy_prefs)
+    user_in_question.save()
+
+
+def process_rating(request):
+    if request.method == 'POST':
+
+        print(request.POST)
+
+        article_title = request.POST.get('article_title')    
+
+        article = NewsArticle.objects.get(title=article_title)
+
+        pickled_user = PickledUser.objects.get(user=request.user).get_user()
+
+        rating = int(request.POST.get('rating'))
+
+        pickled_user.process_rating( article_info=article, rating=rating)
+
+        new_prefs, new_cat_ratings = pickled_user.get_prefs()
+
+        update_category_ratings(new_prefs=new_prefs, new_category_ratings=new_cat_ratings, user=request.user)
+
+        # Update or create the rating in the database
+        ArticleRating.objects.update_or_create(
+            user=request.user,
+            article=article,
+            defaults={'rating': rating}
+        )
+
+    return redirect("home-home")
+
+
+
 
 class HomeListView(ListView):
     model = NewsArticle  # Specify the model to use
@@ -145,7 +194,4 @@ class HomeListView(ListView):
         recs = pickled_user.get_recs(articles=articles)
 
         return {'recs': recs}
-    
-    def process_rating(self, article, rating):
-        self.current_user.process_rating(article=article, rating=rating)
 

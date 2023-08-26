@@ -142,10 +142,10 @@ class User:
         print(article_info)
         print("-------------------------------------------------")
 
-        article_vector = torch.tensor(to_float_list(article_info.iloc[7]))
+        article_vector = torch.tensor(to_float_list(article_info.vector))
 
         # setting learning rate and optimizer
-        learning_rate = .1
+        learning_rate = 5
         criterion = nn.MSELoss()
         optimizer = torch.optim.SGD(self.user_nn.parameters(), lr=learning_rate)
 
@@ -185,14 +185,24 @@ class User:
         # self.print_prefs()
     
     def get_prefs(self):
-        return self.preferences
+        return self.preferences, self.category_ratings
     
-    def reset_vector(self):
-        self.vector, _, _ = set_vector(preferences=self.preferences,
-                                        category_ratings=self.category_ratings,
-                                        subject_vectors= self.subject_vectors)
+     # Changing the preference numbers
+    def update_prefs(self, new_pref, new_cat_rating):
+        if isinstance(new_pref, torch.Tensor):
+            for i in range(len(self.preferences)):
+                for j in range(len(self.preferences[i])):
+                    self.preferences[i][j][1] = new_pref[i][j].detach().numpy().item()
 
+            for k in range(len(self.category_ratings)):
+                self.category_ratings[k][1] = new_cat_rating[k].detach().numpy().item()
+        else:
+            for i in range(len(self.preferences)):
+                for j in range(len(self.preferences[i])):
+                    self.preferences[i][j][1] = new_pref[i][j][1]
 
+            for k in range(len(self.category_ratings)):
+                self.category_ratings[k][1] = new_cat_rating[k][1]
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -217,24 +227,6 @@ def vector_subject_breakdown(article_vector, subject_vectors):
     return similarities_list
 
 
-    # Changing the preference numbers
-    def update_prefs(self, new_pref, new_cat_rating):
-        if isinstance(new_pref, torch.Tensor):
-            for i in range(len(self.preferences)):
-                for j in range(len(self.preferences[i])):
-                    self.preferences[i][j][1] = new_pref[i][j].detach().numpy().item()
-
-            for k in range(len(self.category_ratings)):
-                self.category_ratings[k][1] = new_cat_rating[k].detach().numpy().item()
-        else:
-            for i in range(len(self.preferences)):
-                for j in range(len(self.preferences[i])):
-                    self.preferences[i][j][1] = new_pref[i][j][1]
-
-            for k in range(len(self.category_ratings)):
-                self.category_ratings[k][1] = new_cat_rating[k][1]
-
-
     def class_set_vector(self, prefs, category_ratings, subject_vectors):
         self.update_prefs(prefs, category_ratings)
 
@@ -245,8 +237,6 @@ def vector_subject_breakdown(article_vector, subject_vectors):
 
 
     # get methods ------------------------------------------------------------------------------------------------------
-    def get_prefs(self):
-        return self.preferences, self.category_ratings
 
     def print_prefs(self):
 

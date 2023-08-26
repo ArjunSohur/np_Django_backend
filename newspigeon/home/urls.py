@@ -4,4 +4,5 @@ from . import views
 
 urlpatterns = [
     path("", HomeListView.as_view(), name="home-home"),
+    path('process_rating/', views.process_rating, name='process_rating'),
     ]

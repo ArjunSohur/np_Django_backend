@@ -1,8 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>
-        The home page
-    </h1>
-   {{ recs }}
+    <h1>The home page</h1>
+    <h2>Recommended Articles:</h2>
+    <ul>
+        {% for recommendation in recs %}
+            <li>
+                <strong>{{ recommendation.0.title }}</strong> (Score: {{ recommendation.1 }})
+                <p><a href="{{ recommendation.0.url }}" target="_blank">{{ recommendation.0.url }}</a></p>
+                <p>Authors: {{ recommendation.0.authors }}</p>
+                <p>Published on: {{ recommendation.0.date }}</p>
+                <p>Domain: {{ recommendation.0.domain }}</p>
+
+                <form method="post" action="{% url 'process_rating' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="article_title" value="{{ recommendation.0.title }}">
+                    <label for="rating">Rate this article:</label>
+                    <select name="rating">
+                        {% for i in '0123456789'|make_list %}
+                            <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Submit Rating</button>
+                </form>
+
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
+
