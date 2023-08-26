@@ -131,6 +131,7 @@ class PrefListView(ListView):
     template_name = "prefs/home.html"
     context_object_name = "user_prefs"
 
+    @login_required
     def get_queryset(self):
         user = self.request.user
         user_prefs, created = CategoryRating.objects.get_or_create(user=user)
@@ -152,6 +153,7 @@ class PrefListView(ListView):
         # Return the user's preferences
         return CategoryRating.objects.filter(user=user)
 
+    @login_required
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user_prefs_queryset = context["user_prefs"]

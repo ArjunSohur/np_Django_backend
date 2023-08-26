@@ -87,6 +87,7 @@ def parseCategoryRatings(large_cat_ratings):
     
     return prefs, cat_ratings
 
+@login_required
 def getratings(user):
     user_prefs, created = CategoryRating.objects.get_or_create(user=user)
 
@@ -110,7 +111,7 @@ def getratings(user):
 
     return preferences, short_category_ratings, subject_vectors
 
-
+@login_required
 def update_category_ratings(new_prefs, new_category_ratings, user):
     user_in_question = CategoryRating.objects.get(user=user)
     user_prefs = json.loads(user_in_question.category_ratings_json)
@@ -131,7 +132,7 @@ def update_category_ratings(new_prefs, new_category_ratings, user):
     user_in_question.category_ratings_json = json.dumps(copy_prefs)
     user_in_question.save()
 
-
+@login_required
 def process_rating(request):
     if request.method == 'POST':
 
@@ -168,7 +169,7 @@ class HomeListView(ListView):
     template_name = 'home/home.html'  # Specify the template name
     context_object_name = 'articles'  # Specify the context variable name for the list of articles
 
-
+    @login_required
     def setup(self, request, *args, **kwargs):
         super().setup(request, *args, **kwargs)
         
@@ -184,7 +185,8 @@ class HomeListView(ListView):
             new_user = User(preferences=preferences, category_ratings=short_category_ratings, subject_vectors=subject_vectors, bias=5)
             pickled_data = pickle.dumps(new_user)
             PickledUser.objects.create(user=self.user, pickled_data=pickled_data)
-        
+
+    @login_required   
     def get_context_data(self, **kwargs):
         articles = NewsArticle.objects.all()
         pickled_user = PickledUser.objects.get(user=self.user).get_user()
