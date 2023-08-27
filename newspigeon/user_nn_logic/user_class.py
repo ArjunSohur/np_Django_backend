@@ -203,6 +203,10 @@ class User:
 
             for k in range(len(self.category_ratings)):
                 self.category_ratings[k][1] = new_cat_rating[k][1]
+    
+    def reset_vector(self):
+        self.vector, _, _, = set_vector(preferences=self.preferences, category_ratings=self.category_ratings,
+                                        subject_vectors=self.subject_vectors)
 
 
 # ----------------------------------------------------------------------------------------------------------------------
