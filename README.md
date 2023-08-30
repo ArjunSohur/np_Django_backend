@@ -12,4 +12,5 @@ rating articles to change prefs\
 working on:\
 deployment
  - what service
-tranisioning to postgres
+tranisioning to postgres\
+scraping RSS feeds
