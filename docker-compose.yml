@@ -2,14 +2,16 @@ version: "3"
 
 services:
   web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python newspigeon/manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:
       - db
+    volumes:
+      - .:/app
 
   db:
     image: postgres:13
@@ -19,9 +21,11 @@ services:
       POSTGRES_PASSWORD: NewsPigeon
 
   cron:
-    build: .
-    command: python manage.py get_articles
-    volumes:
-      - .:/app
+    build:
+      context: .
+      dockerfile: Dockerfile.cron
+    command: python newspigeon/manage.py fetch_articles
     depends_on:
       - db
+    volumes:
+      - .:/newspigeon
