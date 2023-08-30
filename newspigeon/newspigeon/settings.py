@@ -83,6 +83,7 @@ DATABASES = {
         'NAME': 'newspigeon',
         'USER': 'postgres',
         'PASSWORD': 'NewsPigeon',
+        'HOST': 'db',
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
