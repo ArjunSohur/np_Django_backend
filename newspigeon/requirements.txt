@@ -5,6 +5,7 @@ charset-normalizer==3.2.0
 click==8.1.7
 cssselect==1.2.0
 Django==4.2.4
+django-crontab==0.7.1
 enum-compat==0.0.3
 et-xmlfile==1.1.0
 feedfinder2==0.0.4

@@ -115,6 +115,15 @@ class Command(BaseCommand):
 
     count = 0
 
+    try:
+        # Delete all news articles
+        NewsArticle.objects.all().delete()
+        response_data = {'message': 'All news articles have been deleted.'}
+        print(response_data)
+    except Exception as e:
+        response_data = {'error': str(e)}
+        print(response_data)
+
     for sub_feed in feeds:
         feed = feedparser.parse(sub_feed[1])
         one_day_ago = datetime.now() - timedelta(days=1)
