@@ -6,10 +6,8 @@ from newspaper import Article
 from datetime import datetime, timedelta
 import nltk
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
-import torch
 from transformers import T5ForConditionalGeneration,T5Tokenizer
 from sentence_transformers import SentenceTransformer
-import json
 import pickle
 
 from ...models import nlp_models
@@ -189,12 +187,3 @@ class Command(BaseCommand):
             count +=1
 
             print("---------------------------------------------")
-
-        
-
-
-
-
-
-
-

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "prefs.apps.PrefsConfig",
     "home.apps.HomeConfig",
     "users.apps.UsersConfig",
+    "articles",
 ]
 
 MIDDLEWARE = [
