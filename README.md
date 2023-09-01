@@ -10,7 +10,5 @@ Send user specific articles with dynamic ratings
 rating articles to change prefs\
 
 working on:\
-deployment
- - what service
-tranisioning to postgres\
-scraping RSS feeds
+Putting Celery in docker\
+Need to find a way to scrape/summarize that is not too RAM intensive
