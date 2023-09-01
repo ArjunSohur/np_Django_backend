@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     "prefs.apps.PrefsConfig",
     "home.apps.HomeConfig",
     "users.apps.UsersConfig",
-    "articles",
-    "django_crontab",
 ]
 
 MIDDLEWARE = [
@@ -137,7 +135,3 @@ LOGIN_REDIRECT_URL = "home-home"
 LOGIN_URL = "/login/"
 
 logger = logging.getLogger(__name__)
-
-CRONJOBS = [
-    ('0 1 * * *', 'articles.management.commands.fetch_articles.Command')
-]
