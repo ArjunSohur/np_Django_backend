@@ -3,9 +3,11 @@ version: "3"
 services:
 
   redis:
+    container_name: newspigeon_redis
     image: redis:7.0.11-alpine
 
   db:
+    container_name: newspigeon_db
     image: postgres:13
     environment:
       POSTGRES_DB: newspigeon
@@ -15,12 +17,25 @@ services:
       - redis
 
   web:
+    container_name: newspigeon_web
     build:
       context: .
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/newspigeon
+  
+  celery:
+    container_name: newspigeon_celery
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: celery --app=newspigeon worker -l INFO
     depends_on:
       - db
       - redis
