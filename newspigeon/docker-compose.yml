@@ -1,6 +1,19 @@
 version: "3"
 
 services:
+
+  redis:
+    image: redis:7.0.11-alpine
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: newspigeon
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: NewsPigeon
+    depends_on:
+      - redis
+
   web:
     build:
       context: .
@@ -10,13 +23,6 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - redis
     volumes:
       - .:/newspigeon
-
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: newspigeon
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: NewsPigeon
