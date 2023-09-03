@@ -35,7 +35,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: celery --app=newspigeon worker -l INFO
+    command: celery --app=newspigeon worker -l INFO 
     depends_on:
       - db
       - redis
@@ -47,7 +47,7 @@ services:
     build:
       context: ../celeryworker
       dockerfile: Dockerfile
-    command: celery -A newspigeon2 worker -l INFO
+    command: celery -A celerytasks worker -l INFO
     depends_on:
       - db
       - redis
