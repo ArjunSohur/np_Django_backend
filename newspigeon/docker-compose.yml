@@ -41,3 +41,16 @@ services:
       - redis
     volumes:
       - .:/newspigeon
+
+  celery2:
+    container_name: newspigeon_celery2
+    build:
+      context: ../celeryworker
+      dockerfile: Dockerfile
+    command: celery -A newspigeon2 worker -l INFO
+    depends_on:
+      - db
+      - redis
+      - web
+    volumes:
+      - .:/celeryworker   
