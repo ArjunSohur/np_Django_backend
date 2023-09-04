@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 import logging
+from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "users.apps.UsersConfig",
     "celery",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -139,4 +141,19 @@ logger = logging.getLogger(__name__)
 
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
+CELERY_TIMEZONE = "America/New_York"
 
+
+
+CELERY_ACCEPT_CONTENT = ['application/json']
+
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULE = {
+    "get_articles": {
+        "task": "home.tasks.fetch_articles",
+        "schedule": crontab(minute="*/10"),
+    }
+}

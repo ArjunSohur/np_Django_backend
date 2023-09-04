@@ -21,7 +21,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
     depends_on:
@@ -35,22 +36,23 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: celery --app=newspigeon worker -l INFO 
+    command: >
+      bash -c "python manage.py makemigrations && python manage.py migrate && celery -A newspigeon worker -l INFO -B --scheduler django_celery_beat.schedulers:DatabaseScheduler"
     depends_on:
       - db
       - redis
     volumes:
       - .:/newspigeon
 
-  celery2:
-    container_name: newspigeon_celery2
-    build:
-      context: ../celeryworker
-      dockerfile: Dockerfile
-    command: celery -A celerytasks worker -l INFO
-    depends_on:
-      - db
-      - redis
-      - web
-    volumes:
-      - .:/celeryworker   
+  #celery2:
+    #container_name: newspigeon_celery2
+    #build:
+      #context: ../celeryworker
+      #dockerfile: Dockerfile
+    #command: celery -A celerytasks worker -l INFO
+    #depends_on:
+      #- db
+      #- redis
+      #- web
+    #volumes:
+      #- .:/celeryworker   
