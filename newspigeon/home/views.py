@@ -9,6 +9,8 @@ import json
 import pickle
 from decimal import Decimal, ROUND_HALF_UP
 
+from .tasks import fetch_articles
+
 
 initialPreferences = [
     [
@@ -194,4 +196,9 @@ class HomeListView(ListView):
         user_ratings = get_user_ratings(user=self.user, articles=articles)
 
         return {'recs': recs, 'user_ratings': user_ratings}
+    
+# -----------------------------------------------------------------------------------------------------------
+def fetch_articles_view():
+    fetch_articles.delay()
+
 

@@ -36,3 +36,8 @@ class PickledUser(models.Model):
 
     def get_user(self):
         return pickle.loads(self.pickled_data)
+    
+class nlp_models(models.Model):
+    model = models.BinaryField()
+    tokenizer = models.BinaryField()
+    sentence_embedder = models.BinaryField()

@@ -5,8 +5,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "newspigeon.settings")
 app = Celery("newspigeon")
 app.config_from_object("django.conf:settings", namespace="CELERY_")
 
-@app.task
-def do_something():
-    print("hi")
-
 app.autodiscover_tasks()
+
+@app.task(bind=True)
+def debug_task(self):
+    print(f"request: {self.request!r}")
+
