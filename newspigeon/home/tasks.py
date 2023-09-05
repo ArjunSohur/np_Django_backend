@@ -81,8 +81,6 @@ def fetch_articles(self):
 
                 text =  "headline: " + article_text
 
-                max_len = 256
-
                 encoding = tokenizer.encode_plus(text, return_tensors = "pt")
                 input_ids = encoding["input_ids"]
                 attention_masks = encoding["attention_mask"]
@@ -112,7 +110,7 @@ def fetch_articles(self):
                             date = article.publish_date,
                             authors = article.authors,
                             domain = article.meta.get("og:site_name"),
-                            vector =  encoding
+                            vector =  vector
                         )
                     except:
                         print("article not processed: ", item.links[0].href)
