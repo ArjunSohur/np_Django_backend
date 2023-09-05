@@ -22,7 +22,8 @@ def fetch_articles(self):
         ["Reuters via Google", "https://news.google.com/rss/search?q=when:24h+allinurl:reuters.com&ceid=US:en&hl=en-US&gl=US"],
     ]
 
-    instance = nlp_models.objects.first()
+    #instance = nlp_models.objects.first()
+    instance = None
 
     if instance is not None:
         # An instance already exists in the database

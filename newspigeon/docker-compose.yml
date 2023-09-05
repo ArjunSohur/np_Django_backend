@@ -44,15 +44,15 @@ services:
     volumes:
       - .:/newspigeon
 
-  #celery2:
-    #container_name: newspigeon_celery2
-    #build:
-      #context: ../celeryworker
-      #dockerfile: Dockerfile
-    #command: celery -A celerytasks worker -l INFO
-    #depends_on:
-      #- db
-      #- redis
-      #- web
-    #volumes:
-      #- .:/celeryworker   
+  celery2:
+    container_name: newspigeon_celery2
+    build:
+      context: ../celeryworker
+      dockerfile: Dockerfile
+    command: celery -A celerytasks worker -l INFO
+    depends_on:
+      - db
+      - redis
+      - web
+    volumes:
+      - .:/celeryworker   
