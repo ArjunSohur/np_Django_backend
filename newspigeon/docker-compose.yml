@@ -37,7 +37,7 @@ services:
       context: .
       dockerfile: Dockerfile
     command: >
-      bash -c "python manage.py makemigrations && python manage.py migrate && celery -A newspigeon worker -l INFO -B --scheduler django_celery_beat.schedulers:DatabaseScheduler"
+      bash -c "python manage.py makemigrations && python manage.py migrate && celery -A newspigeon worker -l INFO -B --scheduler django_celery_beat.schedulers:DatabaseScheduler -Q queue1"
     depends_on:
       - db
       - redis

@@ -127,3 +127,8 @@ def fetch_articles(self):
             print("---------------------------------------------")
     
     return "fetch articles completed with no runtime errors - does not mean successful database storage."
+
+
+@shared_task(bind=True)
+def test_task(self):
+    print("task successful")
