@@ -10,9 +10,9 @@ services:
     container_name: newspigeon_db
     image: postgres:13
     environment:
-      POSTGRES_DB: newspigeon
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: NewsPigeon
+      POSTGRES_DB: os.environ.get("POSTGRES_DB", "db")
+      POSTGRES_USER: os.environ.get("POSTGRES_USER", "user")
+      POSTGRES_PASSWORD: os.environ.get("POSTGRES_PASSWORD", "password")
     depends_on:
       - redis
 
@@ -28,6 +28,8 @@ services:
     depends_on:
       - db
       - redis
+    env_file:
+      - ./.env.dev
     volumes:
       - .:/newspigeon
   
