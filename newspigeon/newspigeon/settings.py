@@ -152,6 +152,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_BEAT_SCHEDULE = {
     "get_articles": {
         "task": "home.tasks.fetch_articles",
-        "schedule": crontab(minute="*/10"),
+        "schedule": crontab(hour=1, minute=0),  # Run at 1 AM
     }
 }
