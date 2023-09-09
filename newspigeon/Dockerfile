@@ -15,9 +15,13 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN mkdir -p /app/newspigeon/static
+
 # Copy the rest of the application code to the container
 COPY . /app/
 
+# Collect static files for nginx
+RUN python manage.py collectstatic --noinput
 # Expose the port your application runs on
 EXPOSE 8000
 
