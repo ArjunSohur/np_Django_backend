@@ -25,7 +25,7 @@ services:
   web:
     container_name: newspigeon_web
     build:
-      context: .
+      context: ./newspigeon  # Adjust the context path to point to your Django project
       dockerfile: Dockerfile
     command: >
       bash -c "python manage.py migrate && gunicorn --workers=4 --bind=0.0.0.0:8000 newspigeon.wsgi:application"
@@ -37,15 +37,15 @@ services:
     env_file:
       - ./.env.dev
     volumes:
-      - .:/newspigeon
-      - static_files:/app/static
+      - ./newspigeon:/app  # Update the volume path for your Django project
+      - static_files:/app/static  # Update the volume path for static files
     networks:
       - newspigeon_default
 
   celery:
     container_name: newspigeon_celery
     build:
-      context: .
+      context: ./newspigeon  # Adjust the context path to point to your Django project
       dockerfile: Dockerfile
     command: >
       bash -c "celery -A newspigeon worker -l INFO -B --scheduler django_celery_beat.schedulers:DatabaseScheduler -Q queue1"
@@ -53,22 +53,7 @@ services:
       - db
       - redis
     volumes:
-      - .:/newspigeon
-    networks:
-      - newspigeon_default
-
-  nginx:
-    container_name: newspigeon_nginx
-    image: nginx:latest
-    ports:
-      - "80:80"
-    depends_on:
-      - web
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Mount your Nginx configuration file
-      - static_files:/app/static
-    links:
-      - web:web  # Link the Nginx service to the web service
+      - ./newspigeon:/app  # Update the volume path for your Django project
     networks:
       - newspigeon_default
 

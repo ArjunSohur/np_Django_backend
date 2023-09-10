@@ -15,7 +15,7 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /app/newspigeon/static
+RUN mkdir -p /home/app/static
 
 # Copy the rest of the application code to the container
 COPY . /app/
