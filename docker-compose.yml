@@ -25,7 +25,7 @@ services:
   web:
     container_name: newspigeon_web
     build:
-      context: ./newspigeon  # Adjust the context path to point to your Django project
+      context: ./newspigeon  # Adjust the context path to point to your Django project (NP_project/newspigeon)
       dockerfile: Dockerfile
     command: >
       bash -c "python manage.py migrate && gunicorn --workers=4 --bind=0.0.0.0:8000 newspigeon.wsgi:application"
@@ -35,25 +35,40 @@ services:
       - db
       - redis
     env_file:
-      - ./.env.dev
+      - ./newspigeon/.env.dev  # Update the path to your Django project's .env file (NP_project/newspigeon/.env.dev)
     volumes:
-      - ./newspigeon:/app  # Update the volume path for your Django project
-      - static_files:/app/static  # Update the volume path for static files
+      - ./newspigeon:/app  # Update the volume path for your Django project (NP_project/newspigeon)
+      - static_files:/app/static  # Mount a volume for serving static files
     networks:
       - newspigeon_default
 
   celery:
     container_name: newspigeon_celery
     build:
-      context: ./newspigeon  # Adjust the context path to point to your Django project
+      context: ./newspigeon  # Adjust the context path to point to your Django project (NP_project/newspigeon)
       dockerfile: Dockerfile
     command: >
       bash -c "celery -A newspigeon worker -l INFO -B --scheduler django_celery_beat.schedulers:DatabaseScheduler -Q queue1"
     depends_on:
       - db
       - redis
+      - web
     volumes:
-      - ./newspigeon:/app  # Update the volume path for your Django project
+      - ./newspigeon:/app  # Update the volume path for your Django project (NP_project/newspigeon)
+    networks:
+      - newspigeon_default
+
+  nginx:
+    container_name: newspigeon_nginx
+    build:
+      context: ./nginx  # Adjust the context path to point to your Nginx directory (NP_project/nginx)
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"  # Map port 80 to your host machine
+    depends_on:
+      - web  # Ensure Nginx starts after your Django application
+    volumes:
+      - static_files:/app/static  # Mount a volume for serving static files from Nginx
     networks:
       - newspigeon_default
 
