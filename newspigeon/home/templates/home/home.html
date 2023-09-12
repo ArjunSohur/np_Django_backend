@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/home.css' %}">
     <h1>The home page</h1>
     <h2>Recommended Articles:</h2>
     <ul>
