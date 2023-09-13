@@ -39,6 +39,7 @@ services:
     volumes:
       - ./newspigeon:/app  # Update the volume path for your Django project (NP_project/newspigeon)
       - static_files:/app/static  # Mount a volume for serving static files
+      - media_files:/app/media
     networks:
       - newspigeon_default
 
@@ -69,11 +70,13 @@ services:
       - web  # Ensure Nginx starts after your Django application
     volumes:
       - static_files:/app/static  # Mount a volume for serving static files from Nginx
+      - media_files:/app/media
     networks:
       - newspigeon_default
 
 volumes:
   static_files:
+  media_files:
 
 networks:
   newspigeon_default:

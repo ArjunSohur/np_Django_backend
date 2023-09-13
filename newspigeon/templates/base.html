@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>News Pigeon</title>
+    <style>
+        /* Add your CSS styles here */
+        /* You can use the styles from the previous response for the dropdown menu */
+    </style>
+</head>
 <body> 
+    <img src="/media/Logo.jpg" alt="Logo">
     {% if user.is_authenticated %}
+        <!-- Navigation for Authenticated Users -->
         <nav>
-            <ul>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="dropdown-menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/preferences/">Preferences</a></li>
                 <li><a href="/profile/">Profile</a></li>
@@ -14,6 +26,7 @@
             </ul>
         </nav>
     {% else %}
+        <!-- Original Navigation for Non-Authenticated Users -->
         <nav>
             <ul>
                 <li><a href="/login/">Log In</a></li>
@@ -21,7 +34,6 @@
             </ul>
         </nav>
     {% endif %}
-
 
     {% if messages %}
         {% for message in messages %}
@@ -31,5 +43,21 @@
         {% endfor %}
     {% endif %}
     {% block content %}{% endblock %}
+
+    <script>
+        // JavaScript to toggle the dropdown menu
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navMenu = document.querySelector(".dropdown-menu");
+
+            menuToggle.addEventListener("click", function () {
+                if (navMenu.style.display === "block") {
+                    navMenu.style.display = "none";
+                } else {
+                    navMenu.style.display = "block";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
