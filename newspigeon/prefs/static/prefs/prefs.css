@@ -1,0 +1,136 @@
+/* Reset some default styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Change to pure white */
+}
+
+/* Global styles */
+nav {
+    background-color: #1da1f2;
+    color: white;
+    padding: 10px 0; /* Add padding to the top and bottom of the nav */
+    position: relative; /* Add position relative for dropdown positioning */
+}
+
+/* Hamburger icon styles */
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #1da1f2;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Hidden dropdown menu */
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: none; /* Hide the menu by default */
+    background-color: #1da1f2;
+    position: absolute;
+    top: 45px; /* Adjust the distance from the "hamburger" icon */
+    right: 10px; /* Adjust the distance from the right edge */
+    width: 200px; /* Set a fixed width or adjust as needed */
+    z-index: 1; /* Ensure the dropdown appears above other content */
+}
+
+.dropdown-menu li {
+    display: block;
+    margin: 0;
+}
+
+/* Style for the dropdown links */
+.dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style for the dropdown links on hover */
+.dropdown-menu li a:hover {
+    background-color: #fff;
+    color: #1da1f2;
+}
+
+/* Your additional styles for the content */
+#ratings-list {
+    list-style: none;
+    padding: 0;
+}
+
+#ratings-list h1 {
+    color: #333; /* Change color to match your design */
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px;
+}
+
+#ratings-list li {
+    margin-bottom: 20px;
+}
+
+#ratings-list h3 {
+    font-size: 18px; /* Adjust font size as needed */
+    margin-bottom: 10px;
+}
+
+.rating-input {
+    width: 60px; /* Adjust width as needed */
+}
+
+#unused-preferences h2 {
+    color: #333; /* Change color to match your design */
+    font-size: 20px; /* Adjust font size as needed */
+    margin-top: 20px;
+}
+
+#unused-preferences ul {
+    list-style: none;
+    padding: 0;
+}
+
+#unused-preferences li {
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+#ratings-form button {
+    padding: 10px 20px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#edit-mode-toggle {
+    background-color: #333; /* Change color to match your design */
+}
+
+#edit-mode-toggle:hover {
+    background-color: #666; /* Change color to match your design */
+}
+
+#save-changes:hover {
+    background-color: #333; /* Change color to match your design */
+}
+
+/* Customize as needed */
