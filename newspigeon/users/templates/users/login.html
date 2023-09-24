@@ -9,7 +9,7 @@
         <form method="post"> 
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">
+                <legend class="text-white">
                     Log In
                 </legend>
                 {{ form.as_p }}
@@ -22,7 +22,7 @@
         </form>
         
         <div class="border-top pt-3">
-            <small class="text-muted">
+            <small class="text-white">
                 Don't have an account? <a class="ml-2" href="/register/">Sign Up</a>
             </small>
         </div>

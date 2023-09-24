@@ -6,15 +6,50 @@ body {
     background-color: #fff; /* Change to pure white */
 }
 
-/* Additional styles for the alert message */
-.alert-info {
+/* Additional styles for the login form */
+.content-section {
     margin: 20px auto;
-    max-width: 400px; /* Adjust the maximum width as needed */
+    max-width: 500px; /* Increase the maximum width as needed */
     padding: 20px;
     background-color: #1da1f2; /* Twitter blue color */
-    border-radius: 5px;
+    border-radius: 10px; /* Increase border-radius for a smoother look */
     color: white; /* Text color */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-size: 24px; /* Increase font size for the legend */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px; /* Increase padding for better spacing */
+    border: none;
+    border-radius: 5px;
+    background-color: #fff; /* Input field background color */
+}
+
+.btn-info {
+    background-color: #1da1f2; /* Twitter blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px; /* Increase padding for better button size */
+    font-weight: bold;
+}
+
+.btn-info:hover {
+    background-color: #0d86c2; /* Darker shade on hover */
+}
+
+.text-white {
+    color: white; /* Make text white */
 }
 
 /* Customize as needed */

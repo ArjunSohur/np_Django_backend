@@ -6,7 +6,7 @@ body {
     background-color: #fff; /* Change to pure white */
 }
 
-/* Additional styles for the signup form */
+/* Additional styles for the login form */
 .content-section {
     margin: 20px auto;
     max-width: 400px; /* Adjust the maximum width as needed */
@@ -36,22 +36,22 @@ legend {
     background-color: #fff; /* Input field background color */
 }
 
-.btn-outline-info {
+.btn-info {
     background-color: #1da1f2; /* Twitter blue color */
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Adjust the padding to make the button smaller */
     font-weight: bold;
 }
 
-.btn-outline-info:hover {
+.btn-info:hover {
     background-color: #0d86c2; /* Darker shade on hover */
 }
 
 .text-muted {
     font-size: 14px; /* Adjust font size as needed */
-    color: #888; /* Change color to match your design */
+    color: #fffefe; /* Change color to match your design */
 }
 
 /* Customize as needed */
